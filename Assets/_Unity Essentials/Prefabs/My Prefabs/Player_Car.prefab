@@ -806,7 +806,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8972154761190405539}
-  - component: {fileID: 8257634080831223339}
   - component: {fileID: 9081350936715471489}
   m_Layer: 0
   m_Name: CarBody_Shell
@@ -833,20 +832,6 @@ Transform:
   - {fileID: 2568900188649868035}
   m_Father: {fileID: 1107208756317609318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8257634080831223339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6243338219190911688}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151850fb67dd34e3bbfeb4a1bcc6c372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockingAngleLimit: 5
-  rockingSpeed: 1
 --- !u!114 &9081350936715471489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,8 +845,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputAxisName: Horizontal
-  turnAngleLimit: {x: 0, y: 0, z: 3}
-  turnAngleSpeed: {x: 0, y: 0, z: 3}
+  turnAngleLimit: {x: 0, y: 0, z: 4}
+  turnAngleSpeed: {x: 0, y: 0, z: 4}
 --- !u!1 &7397874808241905748
 GameObject:
   m_ObjectHideFlags: 0

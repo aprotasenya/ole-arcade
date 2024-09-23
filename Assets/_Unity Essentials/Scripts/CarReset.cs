@@ -44,6 +44,16 @@ public class CarReset : MonoBehaviour
         spawnRotation.y = currentPlayer.transform.rotation.eulerAngles.y;
         Destroy(currentPlayer);
         var newPlayer = Instantiate(playerCarPrefab, spawnPosition, Quaternion.Euler(spawnRotation));
+        ActivateComponents(newPlayer);
         currentPlayer = newPlayer;
+    }
+
+    private void ActivateComponents(GameObject player) {
+        player.GetComponent<PlayerController>().enabled = true;
+        player.GetComponent<AudioSource>().enabled = true;
+
+        player.GetComponentInChildren<Camera>().enabled = true;
+        player.GetComponentInChildren<AudioListener>().enabled = true;
+
     }
 }
