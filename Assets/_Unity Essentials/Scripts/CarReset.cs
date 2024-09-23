@@ -35,7 +35,7 @@ public class CarReset : MonoBehaviour
 
     private void ResetPlayerCar()
     {
-        var spawnPosition = new Vector3(currentPlayer.transform.position.x, spawnHeight, currentPlayer.transform.position.z);
+        var spawnPosition = new Vector3(currentPlayer.transform.position.x, currentPlayer.transform.position.y + spawnHeight, currentPlayer.transform.position.z);
         spawnRotation.y = currentPlayer.transform.rotation.eulerAngles.y;
         Destroy(currentPlayer);
         var newPlayer = Instantiate(playerCarPrefab, spawnPosition, Quaternion.Euler(spawnRotation));
