@@ -12,14 +12,22 @@ public class DoorOpener : MonoBehaviour
 
     }
 
+    private void SetDoorDirection(Collider other)
+    {
+        Vector3 relativePos = transform.InverseTransformPoint(other.transform.position);
+        bool openToTheLeft = relativePos.z < 0;
+        doorAnimator.SetBool("openToTheLeft", openToTheLeft);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player") || doorAnimator == null) { return; }
 
         // Trigger the Door_Open animation
+        SetDoorDirection(other);
         doorAnimator.SetTrigger("Door_Open");
     }
+
 
     private void OnTriggerExit(Collider other)
     {
