@@ -10,7 +10,8 @@ public class PlaySoundOnCollision : MonoBehaviour
     [SerializeField] private bool soundsMayStack = false;
     [SerializeField] private float volumeRandomFactor = 0f;
     [SerializeField] private float pitchRandomFactor = 0f;
-    
+    [SerializeField] private int firstHitsToIgnore = 0;
+    [SerializeField] private int myHitTracker = 0;
     private AudioSource mySound;
     private float originalVolume;
     private float originalPitch;
@@ -32,15 +33,25 @@ public class PlaySoundOnCollision : MonoBehaviour
         }
     }
 
+    private bool MayPlay() {
+        return (firstHitsToIgnore == 0f) || (firstHitsToIgnore <= myHitTracker);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (requirePlayer && collision.gameObject.GetComponent<PlayerController2D>() == null) { return; }
+        if (MayPlay() || (requirePlayer && collision.gameObject.GetComponent<PlayerController2D>() == null)) { return; }
 
         PlaySound();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        myHitTracker++;
+        if (!MayPlay())
+        {
+            return;
+        }
+
         if (requirePlayer && collision.gameObject.GetComponent<PlayerController>() == null) { return; }
 
         PlaySound();
@@ -48,14 +59,14 @@ public class PlaySoundOnCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (requirePlayer && other.GetComponent<PlayerController2D>() == null) { return; }
+        if (MayPlay() || (requirePlayer && other.GetComponent<PlayerController2D>() == null)) { return; }
 
         PlaySound();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (requirePlayer && other.GetComponent<PlayerController>() == null) { return; }
+        if (MayPlay() || (requirePlayer && other.GetComponent<PlayerController>() == null)) { return; }
 
         PlaySound();
     }
