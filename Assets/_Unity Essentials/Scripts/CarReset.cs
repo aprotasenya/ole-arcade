@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CarReset : MonoBehaviour
 {
-
+    
     [SerializeField] private KeyCode restartKey;
     [SerializeField] private GameObject playerCarPrefab;
+    [SerializeField] private float spawnHeight;
+    [SerializeField] private bool useInitialSpawnHeight = false;
 
     private GameObject currentPlayer;
     private Vector3 spawnRotation;
-    private float spawnHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,11 @@ public class CarReset : MonoBehaviour
     {
         currentPlayer = FindObjectOfType<PlayerController>().gameObject;
         spawnRotation = currentPlayer.transform.localEulerAngles;
-        spawnHeight = currentPlayer.transform.position.y;
+
+        if (useInitialSpawnHeight)
+        {
+            spawnHeight = currentPlayer.transform.position.y;
+        }
     }
 
     // Update is called once per frame
