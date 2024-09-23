@@ -7,7 +7,6 @@ public class DoorOpener : MonoBehaviour
 {
     [SerializeField] private Animator doorAnimator;
 
-
     void Start()
     {
 
@@ -16,25 +15,17 @@ public class DoorOpener : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) 
-        {
-            if (doorAnimator != null)
-            {
-                // Trigger the Door_Open animation
-                doorAnimator.SetTrigger("Door_Open");
-            }
-        }
+        if (!other.CompareTag("Player") || doorAnimator == null) { return; }
+
+        // Trigger the Door_Open animation
+        doorAnimator.SetTrigger("Door_Open");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) 
-        {
-            if (doorAnimator != null)
-            {
-                // Trigger the Door_Open animation
-                doorAnimator.SetTrigger("Door_Close");
-            }
-        }
+        if (!other.CompareTag("Player") || doorAnimator == null) { return; }
+
+        // Trigger the Door_Open animation
+        doorAnimator.SetTrigger("Door_Close");
     }
 }
