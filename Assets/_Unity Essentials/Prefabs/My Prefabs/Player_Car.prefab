@@ -477,7 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputAxisName: Horizontal
   turnAngleLimit: {x: 8, y: 0, z: 0}
-  turnAngleSpeed: {x: -8, y: 0, z: 0}
+  turnAngleSpeed: {x: 8, y: 0, z: 0}
 --- !u!1 &1244116403225684014
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputAxisName: Horizontal
   turnAngleLimit: {x: 8, y: 0, z: 0}
-  turnAngleSpeed: {x: 8, y: 0, z: 0}
+  turnAngleSpeed: {x: -8, y: 0, z: 0}
 --- !u!1 &5241778438817863374
 GameObject:
   m_ObjectHideFlags: 0
