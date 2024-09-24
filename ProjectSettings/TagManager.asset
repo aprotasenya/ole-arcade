@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Crate
   - Dirt
+  - Floor
+  - Furniture
   layers:
   - Default
   - TransparentFX

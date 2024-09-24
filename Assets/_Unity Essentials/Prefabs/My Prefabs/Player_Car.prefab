@@ -196,9 +196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33720caab46ec4078ae6c5842894a5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  speedNormal: 1.5
+  speedBoosted: 3.5
   rotationSpeed: 110
-  jumpForce: 3
+  jumpForce: 4
   jumpSFX: {fileID: 8300000, guid: 6a7562b0ac8b944158d1dd076785ca39, type: 3}
 --- !u!82 &2390590187223480595
 AudioSource:
