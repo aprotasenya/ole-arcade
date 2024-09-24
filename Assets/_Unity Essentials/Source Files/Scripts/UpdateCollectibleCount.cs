@@ -4,30 +4,41 @@ using System; // Required for Type handling
 
 public class UpdateCollectibleCount : MonoBehaviour
 {
-    [SerializeField] string counterText = "Collectables:";
-    private TextMeshProUGUI collectibleText; // Reference to the TextMeshProUGUI component
+    [SerializeField] private string counterText = "Collectables:";
+    [SerializeField] private TextMeshProUGUI collectibleText; // Reference to the TextMeshProUGUI component
+    int totalCollectibles = 0;
+    [SerializeField] GameObject celebrationPrefab;
+    Transform player;
+    bool gameWon = false;
+
 
     void Start()
     {
-        collectibleText = GetComponent<TextMeshProUGUI>();
         if (collectibleText == null)
         {
-            Debug.LogError("UpdateCollectibleCount script requires a TextMeshProUGUI component on the same GameObject.");
+            Debug.LogError("UpdateCollectibleCount script requires a TextMeshProUGUI component.");
             return;
         }
         UpdateCollectibleDisplay(); // Initial update on start
+
     }
 
     void Update()
     {
+        if (gameWon) { return; }
+
         UpdateCollectibleDisplay();
+
+        if (totalCollectibles == 0)
+        {
+            Celebrate();
+        }
     }
 
     private void UpdateCollectibleDisplay()
     {
-        int totalCollectibles = 0;
-        totalCollectibles = CountCollectableType(totalCollectibles);
-        totalCollectibles = CountCollectable2DType(totalCollectibles);
+        
+        CountCollectableType();
 
         // Update the collectible count display
         collectibleText.text = $"{counterText} {totalCollectibles}";
@@ -35,27 +46,31 @@ public class UpdateCollectibleCount : MonoBehaviour
 
     }
 
-    private static int CountCollectable2DType(int totalCollectibles)
-    {
-        // Optionally, check and count objects of type Collectible2D as well if needed
-        Type collectible2DType = Type.GetType("Collectible2D");
-        if (collectible2DType != null)
-        {
-            totalCollectibles += UnityEngine.Object.FindObjectsOfType(collectible2DType).Length;
-        }
-
-        return totalCollectibles;
-    }
-
-    private static int CountCollectableType(int totalCollectibles)
+    private void CountCollectableType()
     {
         // Check and count objects of type Collectible
         Type collectibleType = Type.GetType("Collectible");
         if (collectibleType != null)
         {
-            totalCollectibles += UnityEngine.Object.FindObjectsOfType(collectibleType).Length;
+            totalCollectibles = UnityEngine.Object.FindObjectsOfType(collectibleType).Length;
         }
 
-        return totalCollectibles;
     }
+
+
+    private void Celebrate()
+    {
+        gameWon = true;
+
+        player = GameObject.FindObjectOfType<PlayerController>().transform;
+        var celebratePosition = player.position;
+        var celebrateRotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+
+        collectibleText.text = "All collected! Woohoo!";
+        var celebration = Instantiate(celebrationPrefab, celebratePosition, celebrateRotation);
+        celebration.GetComponent<ParticleSystem>().Play();
+        
+        
+    }
+
 }
