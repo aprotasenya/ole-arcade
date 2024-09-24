@@ -7,7 +7,6 @@ public class ToggleActiveOnKey : MonoBehaviour
     [SerializeField] private KeyCode toggleKey = KeyCode.H;
     [SerializeField] private GameObject[] startOn;
     [SerializeField] private GameObject[] startOff;
-    private bool stateSwitch = true;
 
 
     void Start()
