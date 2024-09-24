@@ -51,21 +51,6 @@ public class PlaySoundOnCollision : MonoBehaviour
         PlaySound();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!MayPlay() || (requirePlayer && other.GetComponent<PlayerController2D>() == null)) { return; }
-
-        PlaySound();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!MayPlay() || (requirePlayer && other.GetComponent<PlayerController>() == null)) { return; }
-
-        PlaySound();
-    }
-
-
 
  
     private void PlaySound()
