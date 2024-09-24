@@ -5,11 +5,13 @@ using UnityEngine;
 // Controls player movement and rotation.
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 3.0f; // Set player's movement speed.
+    [SerializeField] private float speedNormal = 3.0f; // Set player's movement speed.
+    [SerializeField] private float speedBoosted = 5f;
     [SerializeField] private float rotationSpeed = 120.0f; // Set player's rotation speed.
     [SerializeField] private float jumpForce = 5.0f;
     [SerializeField] private AudioClip jumpSFX;
 
+    private float currentSpeed = 0f;
     private Rigidbody rb; // Reference to player's Rigidbody.
     private AudioSource playerSound;
 
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>(); // Access player's Rigidbody.
         playerSound = GetComponent<AudioSource>();
+        currentSpeed = speedNormal;
     }
 
     // Update is called once per frame
@@ -26,6 +29,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            currentSpeed = speedBoosted;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        {
+            currentSpeed = speedNormal;
         }
     }
 
@@ -42,12 +54,12 @@ public class PlayerController : MonoBehaviour
     {
         // Move player based on vertical input.
         float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = transform.forward * moveVertical * speed * Time.fixedDeltaTime;
+        Vector3 movement = transform.forward * moveVertical * currentSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
 
         // Rotate player based on horizontal input.
         float turn = Input.GetAxis("Horizontal") * rotationSpeed * Time.fixedDeltaTime;
-        if (Input.GetAxis("Vertical") < 0f) { turn = turn * -1; }
+        if (Input.GetAxis("Vertical") < 0f) { turn *= -1; }
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         rb.MoveRotation(rb.rotation * turnRotation);
 
