@@ -4,22 +4,28 @@ using System; // Required for Type handling
 
 public class UpdateCollectibleCount : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI counterTextObject; // Reference to the TextMeshProUGUI component
     [SerializeField] private string counterText = "Collectables:";
-    [SerializeField] private TextMeshProUGUI collectibleText; // Reference to the TextMeshProUGUI component
-    int totalCollectibles = 0;
+    [SerializeField] string celebrationText = "All collected! Woohoo!";
+    [SerializeField] Color celebrationTextColor = Color.magenta;
     [SerializeField] GameObject celebrationPrefab;
-    Transform player;
+    [SerializeField] bool celebrateAtPlayerPosition = true;
+    [SerializeField] bool useCustomRotation = true;
+    [SerializeField] Vector3 customCelebrationRotation = new(-90, 0, 0);
+    [SerializeField] Transform celebrationPoint;
     bool gameWon = false;
+    int totalCollectibles = 0;
+    Transform player;
 
 
     void Start()
     {
-        if (collectibleText == null)
+        if (counterTextObject == null)
         {
             Debug.LogError("UpdateCollectibleCount script requires a TextMeshProUGUI component.");
             return;
         }
-        UpdateCollectibleDisplay(); // Initial update on start
+        CountCollectiblesAndUpdateCounter(); // Initial update on start
 
     }
 
@@ -27,7 +33,7 @@ public class UpdateCollectibleCount : MonoBehaviour
     {
         if (gameWon) { return; }
 
-        UpdateCollectibleDisplay();
+        CountCollectiblesAndUpdateCounter();
 
         if (totalCollectibles == 0)
         {
@@ -35,38 +41,64 @@ public class UpdateCollectibleCount : MonoBehaviour
         }
     }
 
-    private void UpdateCollectibleDisplay()
+    private void CountCollectiblesAndUpdateCounter()
     {
-        
+        totalCollectibles = 0;
+
         CountCollectableType();
+        CountCollectable2DType();
 
         // Update the collectible count display
-        collectibleText.text = $"{counterText} {totalCollectibles}";
+        counterTextObject.text = $"{counterText} {totalCollectibles}";
 
 
     }
 
     private void CountCollectableType()
     {
-        // Check and count objects of type Collectible
         Type collectibleType = Type.GetType("Collectible");
         if (collectibleType != null)
         {
-            totalCollectibles = UnityEngine.Object.FindObjectsOfType(collectibleType).Length;
+            totalCollectibles += UnityEngine.Object.FindObjectsOfType(collectibleType).Length;
         }
+    }
 
+    private void CountCollectable2DType()
+    {
+        Type collectibleType = Type.GetType("Collectible2D");
+        if (collectibleType != null)
+        {
+            totalCollectibles += UnityEngine.Object.FindObjectsOfType(collectibleType).Length;
+        }
     }
 
 
     private void Celebrate()
     {
         gameWon = true;
+        counterTextObject.text = celebrationText;
+        counterTextObject.color = celebrationTextColor;
 
-        player = GameObject.FindObjectOfType<PlayerController>().transform;
-        var celebratePosition = player.position;
-        var celebrateRotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+        Vector3 celebratePosition;
+        Quaternion celebrateRotation;
 
-        collectibleText.text = "All collected! Woohoo!";
+        if (celebrateAtPlayerPosition)
+        {
+            player = GameObject.FindObjectOfType<PlayerController>().transform;
+            celebratePosition = player.position;
+            celebrateRotation = player.rotation;
+        } else
+        {
+            celebratePosition = celebrationPoint.position;
+            celebrateRotation = celebrationPoint.rotation;
+        }
+
+        if (useCustomRotation)
+        {
+            celebrateRotation = Quaternion.Euler(customCelebrationRotation);
+
+        }
+
         var celebration = Instantiate(celebrationPrefab, celebratePosition, celebrateRotation);
         celebration.GetComponent<ParticleSystem>().Play();
         

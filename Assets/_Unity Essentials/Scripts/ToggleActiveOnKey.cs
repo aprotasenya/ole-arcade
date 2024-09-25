@@ -8,6 +8,7 @@ public class ToggleActiveOnKey : MonoBehaviour
     [SerializeField] private GameObject[] startOn;
     [SerializeField] private GameObject[] startOff;
 
+    bool listenToKey = true;
 
     void Start()
     {
@@ -32,13 +33,21 @@ public class ToggleActiveOnKey : MonoBehaviour
         }
     }
 
+    public void ToggleActive() {
+        ArrayToggleActive(startOn);
+        ArrayToggleActive(startOff);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(toggleKey)) {
-            ArrayToggleActive(startOn);
-            ArrayToggleActive(startOff);
+        if (Input.GetKeyUp(toggleKey) && listenToKey) {
+            ToggleActive();
         }
+    }
+
+    public void SetListenToKey(bool value)
+    {
+        listenToKey = value;
     }
 }
