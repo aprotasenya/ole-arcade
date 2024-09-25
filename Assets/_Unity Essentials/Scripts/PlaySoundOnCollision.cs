@@ -34,7 +34,7 @@ public class PlaySoundOnCollision : MonoBehaviour
     }
 
     private bool MayPlay() {
-        return (startInactiveTime == 0f) || (startInactiveTime <= Time.time);
+        return (startInactiveTime == 0f) || (startInactiveTime <= Time.timeSinceLevelLoad);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
