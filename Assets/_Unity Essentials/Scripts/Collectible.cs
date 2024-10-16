@@ -22,7 +22,7 @@ public class Collectible : MonoBehaviour
         transform.Rotate(rotationVector);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
             onPickup?.Invoke();
@@ -31,7 +31,7 @@ public class Collectible : MonoBehaviour
         
     }
 
-    void ImmediatePickup()
+    protected void ImmediatePickup()
     {
         Instantiate(onCollectPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
