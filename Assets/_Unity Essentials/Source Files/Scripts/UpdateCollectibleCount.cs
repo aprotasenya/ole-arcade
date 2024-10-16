@@ -4,18 +4,22 @@ using System; // Required for Type handling
 
 public class UpdateCollectibleCount : MonoBehaviour
 {
+    int totalCollectibles = 0;
+    bool gameWon = false;
+
     [SerializeField] private TextMeshProUGUI counterTextObject; // Reference to the TextMeshProUGUI component
     [SerializeField] private string counterText = "Collectables:";
+
     [SerializeField] string celebrationText = "All collected! Woohoo!";
     [SerializeField] Color celebrationTextColor = Color.magenta;
+
+    Transform player;
     [SerializeField] GameObject celebrationPrefab;
     [SerializeField] bool celebrateAtPlayerPosition = true;
     [SerializeField] bool useCustomRotation = true;
     [SerializeField] Vector3 customCelebrationRotation = new(-90, 0, 0);
     [SerializeField] Transform celebrationPoint;
-    bool gameWon = false;
-    int totalCollectibles = 0;
-    Transform player;
+
 
 
     void Start()
