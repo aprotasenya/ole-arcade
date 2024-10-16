@@ -218,7 +218,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &81899287
 PrefabInstance:
@@ -352,7 +352,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &92696774
 PrefabInstance:
@@ -662,7 +662,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &158147862
 PrefabInstance:
@@ -776,7 +776,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &166752200
 PrefabInstance:
@@ -1167,7 +1167,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &285697603
 PrefabInstance:
@@ -1281,7 +1281,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &302825709
 GameObject:
@@ -1624,7 +1624,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &355600277 stripped
 GameObject:
@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &374669653
 PrefabInstance:
@@ -1805,7 +1805,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!4 &411148039 stripped
 Transform:
@@ -1952,7 +1952,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -2053,7 +2053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &453652613
 PrefabInstance:
@@ -2066,7 +2066,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -2192,7 +2192,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -2313,7 +2313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &549006140 stripped
 GameObject:
@@ -2340,7 +2340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &564621375 stripped
 GameObject:
@@ -2631,7 +2631,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -2732,7 +2732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &654370213
 PrefabInstance:
@@ -2745,7 +2745,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -2846,7 +2846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &676054503
 GameObject:
@@ -3036,7 +3036,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -3157,7 +3157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &774481978
 PrefabInstance:
@@ -3170,7 +3170,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -3291,7 +3291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &796099986
 PrefabInstance:
@@ -3304,7 +3304,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -3425,7 +3425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &817137422 stripped
 GameObject:
@@ -3466,7 +3466,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -3799,7 +3799,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -3920,7 +3920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!198 &944395938 stripped
 ParticleSystem:
@@ -3987,7 +3987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1098800882 stripped
 GameObject:
@@ -4264,7 +4264,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -4385,7 +4385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &1235554819
 PrefabInstance:
@@ -4398,7 +4398,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -4519,7 +4519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1252546726 stripped
 GameObject:
@@ -4560,7 +4560,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -4681,7 +4681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1311672800 stripped
 GameObject:
@@ -4722,7 +4722,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -4843,7 +4843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1356308547 stripped
 GameObject:
@@ -5111,7 +5111,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -5232,7 +5232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1433477136
 GameObject:
@@ -5319,7 +5319,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -5420,7 +5420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1514134348
 GameObject:
@@ -5662,7 +5662,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -5763,7 +5763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1654778545 stripped
 GameObject:
@@ -6000,7 +6000,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -6101,7 +6101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &1740196530
 PrefabInstance:
@@ -6114,7 +6114,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -6215,7 +6215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1783572213
 GameObject:
@@ -6317,7 +6317,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -6634,7 +6634,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -6755,7 +6755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &1945825295
 GameObject:
@@ -6808,7 +6808,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -6909,7 +6909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &1981693528
 PrefabInstance:
@@ -6922,7 +6922,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -7023,7 +7023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &2016750911 stripped
 GameObject:
@@ -7050,7 +7050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &2035307729
 PrefabInstance:
@@ -7063,7 +7063,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -7150,7 +7150,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -7251,7 +7251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &22477215427114
 PrefabInstance:
@@ -7269,7 +7269,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -7802,7 +7802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!64 &1650732784146634870
 MeshCollider:
@@ -8047,7 +8047,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -8417,7 +8417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &2498423410334038470
 GameObject:
@@ -8540,7 +8540,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -8685,7 +8685,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -9059,7 +9059,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -9160,7 +9160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &3279316325145051733
 PrefabInstance:
@@ -9178,7 +9178,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -9279,7 +9279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!4 &3367725191892089907
 Transform:
@@ -9346,7 +9346,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -9518,7 +9518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &3813153303791014089
 PrefabInstance:
@@ -9536,7 +9536,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -9640,7 +9640,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -9741,7 +9741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!114 &4056962688460288506
 MonoBehaviour:
@@ -9756,7 +9756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!95 &4093224889442922334
 Animator:
@@ -9937,7 +9937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &4705705150116716037
 GameObject:
@@ -10053,7 +10053,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -10200,7 +10200,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -10381,7 +10381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &5944654263994184496
 PrefabInstance:
@@ -10399,7 +10399,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -10664,7 +10664,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -10787,7 +10787,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -10888,7 +10888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!114 &6558168983718500792
 MonoBehaviour:
@@ -10903,7 +10903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!82 &6735439599734667349
 AudioSource:
@@ -11308,7 +11308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1001 &7340830823321447568
 PrefabInstance:
@@ -11664,7 +11664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &7732961369288933375
 GameObject:
@@ -11833,7 +11833,7 @@ PrefabInstance:
     - target: {fileID: 326460704532305271, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
         type: 3}
@@ -11934,7 +11934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!4 &7934052654602445027
 Transform:
@@ -12954,7 +12954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0.5, z: 0}
-  onCollectVFX: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+  onCollectVFX: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
 --- !u!1 &8959395066467518936
 GameObject:

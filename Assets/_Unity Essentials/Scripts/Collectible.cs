@@ -5,19 +5,13 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
     [SerializeField] Vector3 rotationVector = new Vector3(0,0.5f,0);
-    [SerializeField] GameObject onCollectVFX;
-    AudioSource onCollectSFX;
-    float audioLength;
+    [SerializeField] GameObject onCollectPrefab;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        onCollectSFX = GetComponent<AudioSource>();
-        audioLength = onCollectSFX.clip.length;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(rotationVector);
@@ -25,22 +19,14 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) {
-            StartCoroutine(PickUpCollectable());
-            
-        }
+        if (other.CompareTag("Player")) ImmediatePickup();
+        
     }
 
-    private IEnumerator PickUpCollectable()
+    void ImmediatePickup()
     {
-        while (true)
-        {
-            float waitTime = audioLength;
-            onCollectSFX.Play();
-            yield return new WaitForSeconds(waitTime);
-            Instantiate(onCollectVFX, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
+        Instantiate(onCollectPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
-
+ 
 }
