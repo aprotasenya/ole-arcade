@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5597155593495011473}
   - component: {fileID: 6187404078985084923}
   - component: {fileID: 4635697929599746922}
-  - component: {fileID: 5728797984108786630}
+  - component: {fileID: 3740238831907117102}
   m_Layer: 0
   m_Name: Cheese_2D
   m_TagString: Untagged
@@ -51,6 +51,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -94,6 +97,7 @@ PolygonCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443611156633310419}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -117,7 +121,8 @@ PolygonCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,7 +153,7 @@ PolygonCollider2D:
       - {x: 0.10966153, y: -0.08755627}
       - {x: 0.10566153, y: -0.07755627}
   m_UseDelaunayMesh: 0
---- !u!114 &5728797984108786630
+--- !u!114 &3740238831907117102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,9 +162,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 443611156633310419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 613c788f1945544f5baa134130a6b70d, type: 3}
+  m_Script: {fileID: 11500000, guid: a68d350b777414553b865bc4b9444b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.5
-  onCollectEffect: {fileID: 9163842254569548763, guid: 3eed43ae6a7284ee4bf43fb2fec8342b,
+  rotationVector: {x: 0, y: 0, z: 0.5}
+  onCollectPrefab: {fileID: 9163842254569548763, guid: 3eed43ae6a7284ee4bf43fb2fec8342b,
     type: 3}
