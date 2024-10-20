@@ -2,7 +2,7 @@
 using TMPro;
 
 public class GameStateView : MonoBehaviour {
-    [SerializeField] private TextMeshProUGUI counterTextObject; // Reference to the TextMeshProUGUI component
+    [SerializeField] private TextMeshProUGUI counterTextObject;
     [SerializeField] private string counterText = "Collectibles remaining:";
 
     [SerializeField] string celebrationText = "All collected! Woohoo!";
