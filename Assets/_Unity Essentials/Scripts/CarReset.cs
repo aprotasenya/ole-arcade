@@ -1,19 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class CarReset : MonoBehaviour
 {
-    
     [SerializeField] private KeyCode restartKey;
-    [SerializeField] private GameObject playerCarPrefab;
-    [SerializeField] private float spawnHeight;
-    [SerializeField] private bool useInitialSpawnHeight = false;
+    [SerializeField] private float startHeight;
+    [SerializeField] private bool useInitialStartHeight = false;
 
-    private GameObject currentPlayer;
-    private Vector3 spawnRotation;
+    [Inject] private PlayerController player;
+    
+    private Vector3 resetRotation;
 
-    // Start is called before the first frame update
     void Start()
     {
         SetInitials();
@@ -21,16 +20,12 @@ public class CarReset : MonoBehaviour
 
     private void SetInitials()
     {
-        currentPlayer = FindObjectOfType<PlayerController>().gameObject;
-        spawnRotation = currentPlayer.transform.localEulerAngles;
+        resetRotation = player.transform.localEulerAngles;
 
-        if (useInitialSpawnHeight)
-        {
-            spawnHeight = currentPlayer.transform.position.y;
-        }
+        if (useInitialStartHeight) startHeight = player.transform.position.y;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!Input.GetKeyUp(restartKey)) { return; }
@@ -40,20 +35,11 @@ public class CarReset : MonoBehaviour
 
     private void ResetPlayerCar()
     {
-        var spawnPosition = new Vector3(currentPlayer.transform.position.x, currentPlayer.transform.position.y + spawnHeight, currentPlayer.transform.position.z);
-        spawnRotation.y = currentPlayer.transform.rotation.eulerAngles.y;
-        Destroy(currentPlayer);
-        var newPlayer = Instantiate(playerCarPrefab, spawnPosition, Quaternion.Euler(spawnRotation));
-        ActivateComponents(newPlayer);
-        currentPlayer = newPlayer;
-    }
+        var _currentPlayerPosition = player.transform.position;
+        var _resetPosition = new Vector3(_currentPlayerPosition.x, _currentPlayerPosition.y + startHeight, _currentPlayerPosition.z);
+        resetRotation.y = player.transform.rotation.eulerAngles.y;
 
-    private void ActivateComponents(GameObject player) {
-        player.GetComponent<PlayerController>().enabled = true;
-        player.GetComponent<AudioSource>().enabled = true;
-
-        player.GetComponentInChildren<Camera>().enabled = true;
-        player.GetComponentInChildren<AudioListener>().enabled = true;
+        player.transform.SetLocalPositionAndRotation(_resetPosition, Quaternion.Euler(resetRotation));
 
     }
 }

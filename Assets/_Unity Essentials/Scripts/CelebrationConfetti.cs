@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-// Celebration
+using Zenject;
 
 public class CelebrationConfetti : MonoBehaviour
 {
-    Transform player;
+    [Inject] PlayerController player;
+
     [SerializeField] GameObject celebrationPrefab;
     [SerializeField] bool celebrateAtPlayerPosition = true;
     [SerializeField] bool useCustomRotation = true;
@@ -17,9 +18,8 @@ public class CelebrationConfetti : MonoBehaviour
 
         if (celebrateAtPlayerPosition)
         {
-            player = GameObject.FindObjectOfType<PlayerController>().transform;
-            celebratePosition = player.position;
-            celebrateRotation = player.rotation;
+            celebratePosition = player.transform.position;
+            celebrateRotation = player.transform.rotation;
         }
         else
         {
