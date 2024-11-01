@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Collectible : MonoBehaviour
+public class Collectible : MonoBehaviour, IRotating
 {
-    [SerializeField] Vector3 rotationVector = new Vector3(0,0.5f,0);
+    [SerializeField] Vector3 rotationVector = new Vector3(0f, 0.5f, 0f);
     [SerializeField] GameObject onCollectPrefab;
+    [SerializeField] protected int collectibleValue = 1;
 
-    public static Action onCreate;
-    public static Action onPickup;
+    public static Action<int> OnCreated;
+    public static Action<int> OnCollected;
 
 
     void Start()
     {
-        onCreate?.Invoke();
+        OnCreated?.Invoke(collectibleValue);
     }
 
     void Update()
     {
-        transform.Rotate(rotationVector);
+        Rotate();
     }
 
     protected void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
-            onPickup?.Invoke();
+            OnCollected?.Invoke(collectibleValue);
             ImmediatePickup();
         }
         
@@ -36,5 +37,16 @@ public class Collectible : MonoBehaviour
         Instantiate(onCollectPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
- 
+
+    public void Rotate()
+    {
+        transform.Rotate(rotationVector);
+    }
 }
+
+public interface IRotating
+{
+    public abstract void Rotate();
+}
+
+

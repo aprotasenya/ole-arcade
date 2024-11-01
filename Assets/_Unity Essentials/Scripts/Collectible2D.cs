@@ -10,7 +10,7 @@ public class Collectible2D : Collectible
 
         if (other.CompareTag("Player"))
         {
-            onPickup?.Invoke();
+            OnCollected?.Invoke(collectibleValue);
             ImmediatePickup();
         }
 

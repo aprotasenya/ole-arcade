@@ -14,15 +14,15 @@ public class GameStateModel : MonoBehaviour
         OnCollectibleCountChanged?.Invoke(collectiblesCount);
     }
 
-    public void AddCollectible()
+    public void AddCollectible(int value)
     {
-        collectiblesCount++;
+        collectiblesCount += value;
         OnCollectibleCountChanged?.Invoke(collectiblesCount);
     }
 
-    public void RemoveCollectible()
+    public void RemoveCollectible(int value)
     {
-        collectiblesCount--;
+        collectiblesCount -= value;
         OnCollectibleCountChanged?.Invoke(collectiblesCount);
     }
 
