@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class GameStatePresenter : MonoBehaviour {
-    [SerializeField] GameStateModel model;
-    [SerializeField] GameStateView view;
+    [Inject] readonly GameStateModel model;
+    [Inject] readonly GameStateView view;
 
     private void Awake()
     {
         model.SetCollectiblesCount(0);
         model.SetGameWon(false);
 
-        Collectible.onCreate += model.AddCollectible;
-        Collectible.onPickup += model.RemoveCollectible;
+        Collectible.OnCreated += model.AddCollectible;
+        Collectible.OnCollected += model.RemoveCollectible;
         model.OnCollectibleCountChanged += view.UpdateCounter;
         model.OnCollectibleCountChanged += CheckGameWinOnCount;
     }
@@ -22,8 +23,8 @@ public class GameStatePresenter : MonoBehaviour {
 
     private void UnsubscribeAll()
     {
-        Collectible.onCreate -= model.AddCollectible;
-        Collectible.onPickup -= model.RemoveCollectible;
+        Collectible.OnCreated -= model.AddCollectible;
+        Collectible.OnCollected -= model.RemoveCollectible;
         model.OnCollectibleCountChanged -= view.UpdateCounter;
         model.OnCollectibleCountChanged -= CheckGameWinOnCount;
     }

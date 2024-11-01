@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using Zenject;
 
 public class GameStateView : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI counterTextObject;
@@ -8,7 +9,7 @@ public class GameStateView : MonoBehaviour {
     [SerializeField] string celebrationText = "All collected! Woohoo!";
     [SerializeField] Color celebrationTextColor = Color.magenta;
 
-    [SerializeField] CelebrationConfetti confetti;
+    [Inject] readonly CelebrationConfetti confetti;
 
     public void UpdateCounter(int count)
     {

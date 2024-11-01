@@ -3,7 +3,7 @@ using Zenject;
 
 public class CarGameInstaller : MonoInstaller
 {
-    [SerializeField] private GameObject PlayerCarPrefab;
+    //[SerializeField] private GameObject PlayerCarPrefab;
 
     public override void InstallBindings()
     {

@@ -9,7 +9,7 @@ public class CarReset : MonoBehaviour
     [SerializeField] private float startHeight;
     [SerializeField] private bool useInitialStartHeight = false;
 
-    [Inject] private PlayerController player;
+    [Inject] private readonly PlayerController player;
     
     private Vector3 resetRotation;
 

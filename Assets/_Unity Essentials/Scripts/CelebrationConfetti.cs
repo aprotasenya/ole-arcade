@@ -3,7 +3,7 @@ using Zenject;
 
 public class CelebrationConfetti : MonoBehaviour
 {
-    [Inject] PlayerController player;
+    [Inject] readonly PlayerController player;
 
     [SerializeField] GameObject celebrationPrefab;
     [SerializeField] bool celebrateAtPlayerPosition = true;
