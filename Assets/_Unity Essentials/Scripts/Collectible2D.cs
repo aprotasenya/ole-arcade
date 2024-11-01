@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class InheritedCollectible2D : Collectible
+public class Collectible2D : Collectible
 {
 
     private void OnTriggerEnter2D(Collider2D other) {

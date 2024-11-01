@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5597155593495011473}
   - component: {fileID: 6187404078985084923}
   - component: {fileID: 4635697929599746922}
-  - component: {fileID: 3740238831907117102}
+  - component: {fileID: 2020252245999931160}
   m_Layer: 0
   m_Name: Cheese_2D
   m_TagString: Untagged
@@ -153,7 +153,7 @@ PolygonCollider2D:
       - {x: 0.10966153, y: -0.08755627}
       - {x: 0.10566153, y: -0.07755627}
   m_UseDelaunayMesh: 0
---- !u!114 &3740238831907117102
+--- !u!114 &2020252245999931160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 443611156633310419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68d350b777414553b865bc4b9444b7f, type: 3}
+  m_Script: {fileID: 11500000, guid: f5df7bc6be1d24ed593c54b3e01474be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationVector: {x: 0, y: 0, z: 0.5}

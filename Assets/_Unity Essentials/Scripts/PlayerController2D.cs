@@ -69,18 +69,15 @@ public class PlayerController2D : MonoBehaviour
 
     void RotatePlayer(float x, float y)
     {
-        // If there is no input, do not rotate the player
         if (x == 0 && y == 0) return;
 
-        // Calculate the rotation angle based on input direction
         float angle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
-        // Apply the rotation to the player
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<InheritedCollectible2D>() != null) {
+        if (collision.GetComponent<Collectible2D>() != null) {
             AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
 
         }
