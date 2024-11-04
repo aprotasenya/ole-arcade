@@ -69,7 +69,9 @@ namespace Match3
         }
 
         // Are the input coordinates valid (i.e. on the grid)?
-        bool IsValid(int x, int y) => x >= 0 && y >= 0 && x < width && y < height;
+        public bool IsValid(int x, int y) => x >= 0 && y >= 0 && x < width && y < height;
+
+        public bool IsEmpty(int x, int y) => GetValue(x, y) == null;
 
 		public Vector2Int GetXY(Vector3 worldPosition) => coordinateConverter.WorldToGrid(worldPosition, cellSize, origin);
 

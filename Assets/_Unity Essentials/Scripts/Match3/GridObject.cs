@@ -16,9 +16,12 @@ namespace Match3
             this.y = y;
         }
 
-        internal void SetValue(T value)
+        public void SetValue(T value)
         {
             this.gem = value;
         }
+
+        public T GetValue() => gem;
+
     }
 }
