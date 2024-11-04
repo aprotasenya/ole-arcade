@@ -37,8 +37,13 @@ namespace Match3
 			return new GridSystem2D<T>(width, height, cellSize, origin, new VerticalConverter(), debug);
 		}
 
-		// Set a value to a world/grid position
-		public void SetValue (Vector3 worldPosition, T value)
+        public static GridSystem2D<T> HorizontalGrid(int width, int height, float cellSize, Vector3 origin, bool debug = false)
+        {
+            return new GridSystem2D<T>(width, height, cellSize, origin, new HorizontalConverter(), debug);
+        }
+
+        // Set a value to a world/grid position
+        public void SetValue (Vector3 worldPosition, T value)
 		{
 			Vector2Int gridPosition = GetXY(worldPosition);
 			SetValue(gridPosition.x, gridPosition.y, value);
@@ -120,31 +125,57 @@ namespace Match3
             public abstract Vector3 Forward { get; }
         }
 
-		/// <summary>
-		/// A coordinate converter for vertical grids, where the grid lies on the X-Y plane.
-		/// </summary>
-		public class VerticalConverter : CoordinateConverter
-		{
+        /// <summary>
+        /// A coordinate converter for vertical grids, where the grid lies on the X-Y plane.
+        /// </summary>
+        public class VerticalConverter : CoordinateConverter
+        {
             public override Vector3 GridToWorld(int x, int y, float cellSize, Vector3 origin)
             {
-				return new Vector3(x, y, 0) * cellSize + origin;
+                return new Vector3(x, y, 0f) * cellSize + origin;
             }
 
             public override Vector3 GridToWorldCenter(int x, int y, float cellSize, Vector3 origin)
             {
-				return new Vector3(x * cellSize + cellSize * 0.5f, y * cellSize + cellSize * 0.5f, 0) + origin;
+                return new Vector3(x * cellSize + cellSize * 0.5f, y * cellSize + cellSize * 0.5f, 0f) + origin;
             }
 
             public override Vector2Int WorldToGrid(Vector3 worldPosition, float cellSize, Vector3 origin)
             {
-				var gridPosition = (worldPosition - origin) / cellSize;
-				var x = Mathf.FloorToInt(gridPosition.x);
-				var y = Mathf.FloorToInt(gridPosition.y);
-				return new Vector2Int(x, y);
+                var gridPosition = (worldPosition - origin) / cellSize;
+                var x = Mathf.FloorToInt(gridPosition.x);
+                var y = Mathf.FloorToInt(gridPosition.y);
+                return new Vector2Int(x, y);
             }
 
-			public override Vector3 Forward => Vector3.forward;
+            public override Vector3 Forward => Vector3.forward;
         }
 
-	}
+        /// <summary>
+        /// A coordinate converter for horizontal grids, where the grid lies on the X-Z plane.
+        /// </summary>
+        public class HorizontalConverter : CoordinateConverter
+        {
+            public override Vector3 GridToWorld(int x, int y, float cellSize, Vector3 origin)
+            {
+                return new Vector3(x, 0f, y) * cellSize + origin;
+            }
+
+            public override Vector3 GridToWorldCenter(int x, int y, float cellSize, Vector3 origin)
+            {
+                return new Vector3(x * cellSize + cellSize * 0.5f, 0f, y * cellSize + cellSize * 0.5f) + origin;
+            }
+
+            public override Vector2Int WorldToGrid(Vector3 worldPosition, float cellSize, Vector3 origin)
+            {
+                var gridPosition = (worldPosition - origin) / cellSize;
+                var x = Mathf.FloorToInt(gridPosition.x);
+                var y = Mathf.FloorToInt(gridPosition.z);
+                return new Vector2Int(x, y);
+            }
+
+            public override Vector3 Forward => -Vector3.up;
+        }
+
+    }
 }
