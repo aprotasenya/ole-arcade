@@ -24,6 +24,7 @@ namespace Match3
         [SerializeField] Ease gemDropEase = Ease.InQuad;
         [SerializeField, Range(0f, 1f)] float gemDropWaitFactor = 0.75f;
         [SerializeField] GameObject gemPopVFX;
+        [SerializeField, Range(0.5f, 3f)] float popFXScaleFactor = 1.5f;
 
 
         private GridSystem2D<GridObject<Gem>> grid;
@@ -168,7 +169,7 @@ namespace Match3
                 var gem = grid.GetValue(match.x, match.y).GetValue();
                 grid.SetValue(match.x, match.y, null);
 
-                ExplodeFX(match);
+                ExplodeFX(match, gem.GetGemType());
 
                 gem.transform.DOPunchScale(Vector3.one * 0.1f, duration: 0.1f, vibrato: 1, elasticity: 0.5f);
 
@@ -178,9 +179,15 @@ namespace Match3
             }
         }
 
-        private void ExplodeFX(Vector2Int match)
+        private void ExplodeFX(Vector2Int match, GemType gemType)
         {
+            // TODO: FX Pool
             var vfx = Instantiate(gemPopVFX, grid.GetWorldPositionCenter(match.x, match.y), Quaternion.Euler(grid.GetForward()), transform);
+
+            // TODO: Fix this deprecated call
+            vfx.GetComponent<ParticleSystem>().startColor = gemType.color;
+            vfx.transform.localScale = Vector3.one * popFXScaleFactor;
+
             audioManager.PlayPop();
         }
 
