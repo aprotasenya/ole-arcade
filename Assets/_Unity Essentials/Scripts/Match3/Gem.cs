@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Match3
 {
@@ -14,6 +15,7 @@ namespace Match3
         }
 
         public GemType GetGemType() => type;
- 
+
+        internal void DestroyGem() => Destroy(gameObject);
     }
 }

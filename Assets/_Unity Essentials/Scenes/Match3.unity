@@ -156,8 +156,11 @@ MonoBehaviour:
   originPosition: {x: -4, y: -4, z: 0}
   gridAutoCenter: 1
   debug: 0
-  gemMoveTime: 0.5
-  ease: 28
+  gemSwapTime: 0.4
+  gemSwapEase: 28
+  gemDropTime: 0.1
+  gemDropEase: 11
+  gemDropWaitFactor: 0.5
   gemPrefab: {fileID: 2197819471004636799, guid: 1c957154e53584d42b6c2b9783c02c65,
     type: 3}
   gemTypes:
