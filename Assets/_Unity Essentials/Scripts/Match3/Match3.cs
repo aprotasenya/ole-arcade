@@ -84,10 +84,15 @@ namespace Match3
             }
             else
             {
-                StartCoroutine(RunGameLoop(selectedGem, gridPosition));
+                // TODO: Limit to only neighbour swaps?
+                // TODO: Limit valid moves only to matching ones?
+
+                StartCoroutine(RunMatchLoop(selectedGem, gridPosition));
                 audioManager.PlaySelect();
             }
         }
+
+        // TODO: Add gem outline for select/deselect
 
         private void SelectGem(Vector2Int gridPosition)
         {
@@ -99,17 +104,20 @@ namespace Match3
             selectedGem = Vector2Int.one * -1;
         }
 
-        IEnumerator RunGameLoop(Vector2Int gridPositionA, Vector2Int gridPositionB)
+        IEnumerator RunMatchLoop(Vector2Int gridPositionA, Vector2Int gridPositionB)
         {
             yield return StartCoroutine(SwapGems(gridPositionA, gridPositionB));
+
+            // TODO: Find auto-matches after grid population and drops
 
             List<Vector2Int> matches = FindMatches();
 
             yield return StartCoroutine(ExplodeGems(matches));
 
+            // TODO: Calculate score
+
             yield return StartCoroutine(MakeGemsFall());
 
-            // TODO: Fill empty spots
             yield return StartCoroutine(FillEmptySpots());
 
             DeselectGem();
@@ -137,6 +145,8 @@ namespace Match3
 
         private IEnumerator MakeGemsFall()
         {
+            // TODO: Make this more efficient (could be faster & readable)
+
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
