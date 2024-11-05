@@ -77,7 +77,9 @@ namespace Match3
 
 		public Vector3 GetWorldPositionCenter(int x, int y) => coordinateConverter.GridToWorldCenter(x, y, cellSize, origin);
 
-		Vector3 GetWorldPosition(int x, int y) => coordinateConverter.GridToWorld(x, y, cellSize, origin);
+		public Vector3 GetWorldPosition(int x, int y) => coordinateConverter.GridToWorld(x, y, cellSize, origin);
+
+        public Vector3 GetForward() => coordinateConverter.Forward;
 
         private void DrawDebugLines()
         {
