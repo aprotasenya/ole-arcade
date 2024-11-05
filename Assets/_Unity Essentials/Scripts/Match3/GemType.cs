@@ -6,5 +6,6 @@ namespace Match3
     public class GemType : ScriptableObject
     {
         public Sprite sprite;
+        public Color color;
     }
 }

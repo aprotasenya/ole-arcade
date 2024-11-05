@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BlueGem
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5938bd5d018267a45aa0962f00fbabe7, type: 3}
+  color: {r: 0.07450981, g: 0.3019608, b: 0.87058824, a: 1}

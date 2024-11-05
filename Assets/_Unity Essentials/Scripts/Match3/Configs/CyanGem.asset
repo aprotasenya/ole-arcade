@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: CyanGem
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: def4de0560faecd4391f9c8db825de08, type: 3}
+  color: {r: 0.023529412, g: 0.74509805, b: 0.7647059, a: 1}
