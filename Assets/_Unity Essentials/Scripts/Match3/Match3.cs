@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using DG.Tweening;
-using System.Collections.Generic;
+using OutlineFx;
 
 namespace Match3
 {
@@ -80,6 +81,7 @@ namespace Match3
             else if (selectedGem == Vector2Int.one * -1)
             {
                 SelectGem(gridPosition);
+                EnableOutline(gridPosition, true);
                 audioManager.PlaySelect();
             }
             else
@@ -87,9 +89,17 @@ namespace Match3
                 // TODO: Limit to only neighbour swaps?
                 // TODO: Limit valid moves only to matching ones?
 
-                StartCoroutine(RunMatchLoop(selectedGem, gridPosition));
+                EnableOutline(gridPosition, true);
                 audioManager.PlaySelect();
+                StartCoroutine(RunMatchLoop(selectedGem, gridPosition));
             }
+        }
+
+        private void EnableOutline(Vector2Int gridPosition, bool enabled)
+        {
+            var gemOutline = grid.GetValue(gridPosition.x, gridPosition.y).GetValue().gameObject.GetComponent<Outline>();
+            gemOutline.enabled = enabled;
+
         }
 
         // TODO: Add gem outline for select/deselect
@@ -101,7 +111,9 @@ namespace Match3
 
         private void DeselectGem()
         {
+            EnableOutline(selectedGem, false);
             selectedGem = Vector2Int.one * -1;
+
         }
 
         IEnumerator RunMatchLoop(Vector2Int gridPositionA, Vector2Int gridPositionB)
@@ -277,6 +289,10 @@ namespace Match3
             grid.SetValue(gridPositionB.x, gridPositionB.y, gridObjectA);
 
             yield return new WaitForSeconds(gemSwapTime);
+
+            EnableOutline(gridPositionA, false);
+            EnableOutline(gridPositionB, false);
+
         }
 
         void GridAutoCenter()
