@@ -5,7 +5,8 @@ public class PlayerController2D : MonoBehaviour
     // Public variables
     public float speed = 5f; // The speed at which the player moves
     public bool canMoveDiagonally = true; // Controls whether the player can move diagonally
-    public AudioClip pickUpSound;
+    [SerializeField] private AudioClip pickUpSound;
+    private AudioSource audioSource;
 
 
     // Private variables 
@@ -15,6 +16,7 @@ public class PlayerController2D : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         // Initialize the Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
         // Prevent the player from rotating
@@ -78,8 +80,7 @@ public class PlayerController2D : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Collectible2D>() != null) {
-            AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
-
+            audioSource.PlayOneShot(pickUpSound);
         }
     }
 }
