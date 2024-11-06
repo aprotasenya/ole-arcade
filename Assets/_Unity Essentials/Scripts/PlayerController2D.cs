@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController2D : MonoBehaviour
+public class PlayerController2D : PlayerController
 {
     // Public variables
     public float speed = 5f; // The speed at which the player moves
@@ -10,7 +10,7 @@ public class PlayerController2D : MonoBehaviour
 
 
     // Private variables 
-    private Rigidbody2D rb; // Reference to the Rigidbody2D component attached to the player
+    private Rigidbody2D rb2d; // Reference to the Rigidbody2D component attached to the player
     private Vector2 movement; // Stores the direction of player movement
     private bool isMovingHorizontally = true; // Flag to track if the player is moving horizontally
 
@@ -18,9 +18,9 @@ public class PlayerController2D : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         // Initialize the Rigidbody2D component
-        rb = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         // Prevent the player from rotating
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     void Update()
@@ -66,7 +66,7 @@ public class PlayerController2D : MonoBehaviour
     void FixedUpdate()
     {
         // Apply movement to the player in FixedUpdate for physics consistency
-        rb.linearVelocity = movement * speed;
+        rb2d.linearVelocity = movement * speed;
     }
 
     void RotatePlayer(float x, float y)
