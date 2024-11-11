@@ -9,16 +9,16 @@ public class Collectible : MonoBehaviour, IRotating, ICollectible
     [SerializeField] GameObject onCollectPrefab;
     [SerializeField] protected int collectibleValue = 1;
 
-    ICollectible.CollectibleType _type = ICollectible.CollectibleType.Star3D;
-    public ICollectible.CollectibleType type { get => _type; set => _type = value; }
+    [SerializeField] CollectibleType _type = CollectibleType.Star3D;
+    public CollectibleType Type { get => _type; set => _type = value; }
 
-    public static Action<ICollectible.CollectibleType, int> OnCreated;
-    public static Action<ICollectible.CollectibleType, int> OnCollected;
+    public static event Action<CollectibleType, int> OnCreated;
+    public static event Action<CollectibleType, int> OnCollected;
 
 
     void Start()
     {
-        OnCreated?.Invoke(type, collectibleValue);
+        OnCreated?.Invoke(Type, collectibleValue);
     }
 
     void Update()
@@ -29,7 +29,6 @@ public class Collectible : MonoBehaviour, IRotating, ICollectible
     protected void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
-            OnCollected?.Invoke(type, collectibleValue);
             ImmediatePickup();
         }
         
@@ -37,6 +36,7 @@ public class Collectible : MonoBehaviour, IRotating, ICollectible
 
     protected void ImmediatePickup()
     {
+        OnCollected?.Invoke(Type, collectibleValue);
         Instantiate(onCollectPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }

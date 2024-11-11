@@ -5,56 +5,64 @@ using NaughtyAttributes;
 [Serializable]
 public class CollectibleGoal
 {
-    [SerializeField] GameObject item;
-    [SerializeField] public bool collectAllFromScene = true;
+    public CollectibleType collectibleType;
+    public bool collectAllFromScene = true;
     [SerializeField, /*HideIf("collectAllFromScene"), AllowNesting*/] int _quantityGoal;
 
-    public int QuantityGoal { get => _quantityGoal; }
+    public int QuantityGoal
+    {
+        get => _quantityGoal;
+        private set
+        {
+            _quantityGoal = value;
+            CheckGoalComplete();
+        }
+    }
 
-    public ICollectible collectible;
-    public ICollectible.CollectibleType collectibleType;
+    public bool GoalComplete { get; private set; }
+
+    public static event Action OnComplete;
+
 
     public void Init()
     {
-        collectible = item.GetComponent<ICollectible>();
-        collectibleType = collectible.type;
         if (collectAllFromScene) _quantityGoal = 0;
-        //ValidateToConsole();
+        GoalComplete = false;
     }
 
-    public void SetGoalQuantity(ICollectible.CollectibleType itemType, int value)
+
+    public void SetGoalQuantity(CollectibleType itemType, int value)
     {
-        if (itemType == collectible.type)
+        if (itemType == collectibleType)
         {
-            _quantityGoal = value;
+            QuantityGoal = value;
         }
     }
 
-    public void AddGoalQuantity(ICollectible.CollectibleType itemType, int value)
+    public void AddGoalQuantity(CollectibleType itemType, int value)
     {
-        if (itemType == collectible.type)
+        if (itemType == collectibleType)
         {
-            _quantityGoal += value;
+            QuantityGoal += value;
         }
     }
 
-    public void RemoveGoalQuantity(ICollectible.CollectibleType itemType, int value)
+    public void RemoveGoalQuantity(CollectibleType itemType, int value)
     {
-        if (itemType == collectible.type)
+        if (itemType == collectibleType)
         {
-            _quantityGoal -= value;
+            QuantityGoal -= value;
         }
     }
 
-    void ValidateToConsole()
+    private void CheckGoalComplete()
     {
-        if (collectible != null)
+        if (QuantityGoal <= 0)
         {
-            Debug.Log($"{item.gameObject.name} is a collectible!");
-        } else
-        {
-            Debug.LogWarning($"{item.gameObject.name} is NOT a collectible!");
+            GoalComplete = true;
+            OnComplete?.Invoke();
         }
     }
+
 
 }

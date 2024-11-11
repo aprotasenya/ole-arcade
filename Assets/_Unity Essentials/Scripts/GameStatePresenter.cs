@@ -1,16 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 public class GameStatePresenter : MonoBehaviour {
     [Inject] readonly GameStateModel model;
     [Inject] readonly GameStateView view;
-    [SerializeField] GameObject collectiblePrefab;
-    [SerializeField] ICollectible.CollectibleType itemType;
 
     private void Start()
     {
-        itemType = collectiblePrefab.GetComponent<ICollectible>().type;
-        //model.SetCollectiblesCount(itemType, 0);
         model.SetGameWon(false);
     }
 
@@ -28,21 +25,26 @@ public class GameStatePresenter : MonoBehaviour {
     {
         Collectible.OnCreated += model.AddCollectibleCallback;
         Collectible.OnCollected += model.RemoveCollectibleCallback;
-        model.OnCollectibleCountChanged += view.UpdateCounter;
-        //model.OnCollectibleCountChanged += CheckGameWinOnCount;
+        CollectibleGoal.OnComplete += model.UpdateTheGoals;
+        model.OnGoalsUpdated += view.UpdateCounter;
+        model.OnGoalsUpdated += CheckGameWinOnGoals;
     }
 
     private void UnsubscribeAll()
     {
         Collectible.OnCreated -= model.AddCollectibleCallback;
         Collectible.OnCollected -= model.RemoveCollectibleCallback;
-        model.OnCollectibleCountChanged -= view.UpdateCounter;
-        //model.OnCollectibleCountChanged -= CheckGameWinOnCount;
+        CollectibleGoal.OnComplete -= model.UpdateTheGoals;
+        model.OnGoalsUpdated -= view.UpdateCounter;
+        model.OnGoalsUpdated -= CheckGameWinOnGoals;
+
     }
 
-    private void CheckGameWinOnCount(int count)
+    private void CheckGameWinOnGoals(List<CollectibleGoal> goals)
     {
-        if (count <= 0)
+        var victory = goals.TrueForAll(g => g.GoalComplete == true);
+
+        if (victory)
         {
             model.SetGameWon(true);
             view.Celebrate();

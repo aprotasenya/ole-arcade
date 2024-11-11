@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using TMPro;
 using Zenject;
+using System.Collections.Generic;
+using System.Linq;
 
 public class GameStateView : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI counterTextObject;
@@ -11,9 +13,11 @@ public class GameStateView : MonoBehaviour {
 
     [Inject] readonly CelebrationConfetti confetti;
 
-    public void UpdateCounter(int count)
+
+    public void UpdateCounter(List<CollectibleGoal> goals)
     {
-        counterTextObject.text = $"{counterText} {count}";
+        var countTotal = goals.Sum(g => g.QuantityGoal);
+        counterTextObject.text = $"{counterText} {countTotal}";
     }
 
     public void Celebrate()
