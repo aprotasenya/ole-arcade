@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Collectible : MonoBehaviour, IRotating
+public class Collectible : MonoBehaviour, IRotating, ICollectible
 {
     [SerializeField] Vector3 rotationVector = new Vector3(0f, 0.5f, 0f);
     [SerializeField] GameObject onCollectPrefab;
     [SerializeField] protected int collectibleValue = 1;
 
-    public static Action<int> OnCreated;
-    public static Action<int> OnCollected;
+    ICollectible.CollectibleType _type = ICollectible.CollectibleType.Star3D;
+    public ICollectible.CollectibleType type { get => _type; set => _type = value; }
+
+    public static Action<ICollectible.CollectibleType, int> OnCreated;
+    public static Action<ICollectible.CollectibleType, int> OnCollected;
 
 
     void Start()
     {
-        OnCreated?.Invoke(collectibleValue);
+        OnCreated?.Invoke(type, collectibleValue);
     }
 
     void Update()
@@ -26,7 +29,7 @@ public class Collectible : MonoBehaviour, IRotating
     protected void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
-            OnCollected?.Invoke(collectibleValue);
+            OnCollected?.Invoke(type, collectibleValue);
             ImmediatePickup();
         }
         
