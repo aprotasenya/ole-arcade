@@ -3709,6 +3709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4375caad0ae4a4fb44c491f619ec6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectiblePrefab: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf,
+    type: 3}
+  itemType: 3
 --- !u!114 &874151073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3737,6 +3740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5348eb1d43c4defae77c30bdb367e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectibleGoals:
+  - item: {fileID: 3720867298404714495, guid: 0188d362571e34eb3a9af2feb73521cf, type: 3}
+    collectAll: 0
+    quantityGoal: 1
+    collectibleType: 4
 --- !u!114 &874151075
 MonoBehaviour:
   m_ObjectHideFlags: 0
