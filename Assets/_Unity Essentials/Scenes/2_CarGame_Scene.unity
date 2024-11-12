@@ -3722,8 +3722,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterTextObject: {fileID: 1469133008}
-  counterText: 'Collectibles remaining:'
-  celebrationText: All collected! Woohoo!
+  counterText: "\U0001F9E9 Collectibles remaining:"
+  celebrationText: "All collected! Woohoo! \U0001F389"
   celebrationTextColor: {r: 1, g: 0.88235295, b: 0.03137255, a: 1}
 --- !u!114 &874151074
 MonoBehaviour:
