@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3926995519691008072}
   - component: {fileID: 4270279630675246607}
   - component: {fileID: 7056519149531979456}
+  - component: {fileID: 7209972719648685517}
   m_Layer: 0
   m_Name: Collectible_Star
   m_TagString: Untagged
@@ -68,9 +69,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61c7d27582d5431c85d57f9d7460d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationVector: {x: 0, y: 0.5, z: 0}
   onCollectPrefab: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
+  collectibleValue: 1
+  _type: 0
+--- !u!114 &7209972719648685517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720867298404714495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55909b8f9f7004e1db21d333b38dbb94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationVector: {x: 0, y: 0.5, z: 0}
 --- !u!1 &8321453150816668697
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +144,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

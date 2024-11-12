@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6187404078985084923}
   - component: {fileID: 4635697929599746922}
   - component: {fileID: 2020252245999931160}
+  - component: {fileID: -5412625216943920774}
   m_Layer: 0
   m_Name: Cheese_2D
   m_TagString: Untagged
@@ -160,11 +161,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443611156633310419}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5df7bc6be1d24ed593c54b3e01474be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationVector: {x: 0, y: 0, z: 0.5}
   onCollectPrefab: {fileID: 9163842254569548763, guid: 3eed43ae6a7284ee4bf43fb2fec8342b,
     type: 3}
+  collectibleValue: 1
+  _type: 0
+--- !u!114 &-5412625216943920774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443611156633310419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55909b8f9f7004e1db21d333b38dbb94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationVector: {x: 0, y: 0, z: 1}
