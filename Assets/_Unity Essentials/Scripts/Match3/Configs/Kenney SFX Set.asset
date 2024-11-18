@@ -16,7 +16,7 @@ MonoBehaviour:
   selectGem: {fileID: 8300000, guid: 0e94ea80cdc9b49218bd5df8e2b23afd, type: 3}
   deselectGem: {fileID: 0}
   match: {fileID: 8300000, guid: 801616a31d5a9468db86c817a0b11246, type: 3}
-  noMatch: {fileID: 8300000, guid: 72a7f5332257c4ca88fc897ba6b4c919, type: 3}
+  noMatch: {fileID: 0}
   gemPop: {fileID: 8300000, guid: a770f03c062244b97828c31530cab2f9, type: 3}
   gemDrop: {fileID: 8300000, guid: 6f883160b8b7a4fc0a8aad71c4f5c9c8, type: 3}
   gemCreate: {fileID: 8300000, guid: 0fdb5f5c28f874dbb8c17926f010586d, type: 3}
