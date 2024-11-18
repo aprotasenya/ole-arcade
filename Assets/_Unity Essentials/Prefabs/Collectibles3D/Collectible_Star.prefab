@@ -71,8 +71,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onCollectPrefab: {fileID: 1266312776637522020, guid: 25c24bce3ea02476fbda067945ed5524,
     type: 3}
-  collectibleValue: 1
-  _type: 0
+  _type: {fileID: 11400000, guid: 05b23794f66464020b9ec19bb5b5b97d, type: 2}
+  _collectibleValue: 1
 --- !u!114 &7209972719648685517
 MonoBehaviour:
   m_ObjectHideFlags: 0

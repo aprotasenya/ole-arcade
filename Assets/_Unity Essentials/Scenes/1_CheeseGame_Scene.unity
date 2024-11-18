@@ -1045,8 +1045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterTextObject: {fileID: 501671841}
-  counterText: 'Cheese Snacks remaining:'
-  celebrationText: '"All your cheese are belong to us! Haha!"'
+  counterText: "\U0001F9C0 Cheese Snacks remaining:"
+  celebrationText: "\U0001F47D: \"All your cheese are belong to us!\""
   celebrationTextColor: {r: 0.007843138, g: 1, b: 0.38431373, a: 1}
 --- !u!114 &133814456
 MonoBehaviour:
@@ -1078,6 +1078,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5348eb1d43c4defae77c30bdb367e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCollectGoals:
+  - collectibleConfig: {fileID: 11400000, guid: fdca56be4a5cb48419e5361497d133bc,
+      type: 2}
+    collectAllFromScene: 1
+    _quantityGoal: 0
+  canAutoAddGoals: 1
 --- !u!114 &133814458
 MonoBehaviour:
   m_ObjectHideFlags: 0
