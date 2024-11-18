@@ -87,7 +87,8 @@ namespace Match3
 
                 EnableOutline(gridPosition, true);
                 audioManager.PlaySelect();
-                StartCoroutine(RunMatchLoop(selectedGem, gridPosition));
+                StartCoroutine(SwapGems(selectedGem, gridPosition));
+                DeselectGem();
             }
         }
 
@@ -97,8 +98,6 @@ namespace Match3
             if (gemOutline != null) gemOutline.enabled = enabled;
 
         }
-
-        // TODO: Add gem outline for select/deselect
 
         private void SelectGem(Vector2Int gridPosition)
         {
@@ -112,23 +111,22 @@ namespace Match3
 
         }
 
-        IEnumerator RunMatchLoop(Vector2Int gridPositionA, Vector2Int gridPositionB)
+        IEnumerator RunMatchLoop()
         {
-            yield return StartCoroutine(SwapGems(gridPositionA, gridPositionB));
-
-            // TODO: Find auto-matches after grid population and drops
-
             List<Vector2Int> matches = FindMatches();
 
-            yield return StartCoroutine(ExplodeGems(matches));
+            while (matches.Count > 0)
+            {
+                yield return StartCoroutine(ExplodeGems(matches));
 
-            // TODO: Calculate score
+                // TODO: Calculate score
 
-            yield return StartCoroutine(MakeGemsFall());
+                yield return StartCoroutine(MakeGemsFall());
 
-            yield return StartCoroutine(FillEmptySpots());
+                yield return StartCoroutine(FillEmptySpots());
 
-            DeselectGem();
+                matches = FindMatches();
+            }
 
             // TODO: Check for GameOver
 
@@ -197,10 +195,10 @@ namespace Match3
             }
         }
 
-        private void ExplodeFX(Vector2Int match, GemType gemType)
+        private void ExplodeFX(Vector2Int gemLocation, GemType gemType)
         {
             // TODO: FX Pool
-            var vfx = Instantiate(gemPopVFX, grid.GetWorldPositionCenter(match.x, match.y), Quaternion.Euler(grid.GetForward()), transform);
+            var vfx = Instantiate(gemPopVFX, grid.GetWorldPositionCenter(gemLocation.x, gemLocation.y), Quaternion.Euler(grid.GetForward()), transform);
 
             // TODO: Fix this deprecated call
             vfx.GetComponent<ParticleSystem>().startColor = gemType.color;
@@ -289,6 +287,8 @@ namespace Match3
             EnableOutline(gridPositionA, false);
             EnableOutline(gridPositionB, false);
 
+            yield return StartCoroutine(RunMatchLoop());
+
         }
 
         void GridAutoCenter()
@@ -311,6 +311,8 @@ namespace Match3
                     CreateGem(x, y, silently: true);
                 }
             }
+
+            StartCoroutine(RunMatchLoop());
         }
 
         private void CreateGem(int x, int y, bool silently = false)
