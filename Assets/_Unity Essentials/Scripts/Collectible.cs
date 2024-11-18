@@ -21,7 +21,8 @@ public class Collectible : MonoBehaviour, ICollectible
 
     protected void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) {
+        if (other.GetComponent<PlayerController>() != null)
+        {
             ImmediatePickup();
         }
         

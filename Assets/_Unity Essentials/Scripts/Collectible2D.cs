@@ -21,7 +21,7 @@ public class Collectible2D : MonoBehaviour, ICollectible
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<PlayerController2D>() != null)
         {
             ImmediatePickup();
         }

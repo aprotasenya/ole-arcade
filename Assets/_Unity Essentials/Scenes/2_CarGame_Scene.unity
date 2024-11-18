@@ -686,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503fcfdf1aca94ab490d6e20a42102d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1991474020990097780}
   celebrationPrefab: {fileID: 7316632619305115585, guid: 273d3eee050ee4cc4a59d8f8729710e7,
     type: 3}
   celebrateAtPlayerPosition: 1
@@ -4886,6 +4887,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 256533444}
   m_SourcePrefab: {fileID: 100100000, guid: 526be423c702d45148f97ce0180d1103, type: 3}
+--- !u!114 &1991474020990097780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 21638055959715856, guid: 526be423c702d45148f97ce0180d1103,
+    type: 3}
+  m_PrefabInstance: {fileID: 1991474020990097779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256533438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33720caab46ec4078ae6c5842894a5cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2016774035392866845
 Transform:
   m_ObjectHideFlags: 0

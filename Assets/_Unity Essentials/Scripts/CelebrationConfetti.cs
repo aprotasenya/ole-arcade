@@ -3,8 +3,7 @@ using Zenject;
 
 public class CelebrationConfetti : MonoBehaviour
 {
-    [Inject] readonly PlayerController player;
-
+    [SerializeField] private PlayerController player;
     [SerializeField] GameObject celebrationPrefab;
     [SerializeField] bool celebrateAtPlayerPosition = true;
     [SerializeField] bool useCustomRotation = true;
@@ -16,7 +15,7 @@ public class CelebrationConfetti : MonoBehaviour
         Vector3 celebratePosition;
         Quaternion celebrateRotation;
 
-        if (celebrateAtPlayerPosition)
+        if (celebrateAtPlayerPosition && player != null)
         {
             celebratePosition = player.transform.position;
             celebrateRotation = player.transform.rotation;

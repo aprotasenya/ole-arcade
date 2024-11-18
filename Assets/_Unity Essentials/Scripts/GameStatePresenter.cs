@@ -9,7 +9,7 @@ public class GameStatePresenter : MonoBehaviour {
 
     private void Start()
     {
-        model.SetGameWon(false);
+        model.InitializeGoals();
 
         if (populator != null) populator.Populate();
     }
@@ -45,7 +45,7 @@ public class GameStatePresenter : MonoBehaviour {
 
     private void CheckAllGoalsComplete(List<CollectibleGoal> goals)
     {
-        var victory = goals.TrueForAll(g => g.GoalComplete == true);
+        var victory = (goals.Count > 0) && (goals.TrueForAll(g => g.IsComplete == true));
 
         if (victory)
         {

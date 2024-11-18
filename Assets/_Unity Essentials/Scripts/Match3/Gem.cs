@@ -12,10 +12,15 @@ namespace Match3
         {
             this.type = type;
             GetComponent<SpriteRenderer>().sprite = type.sprite;
+            ICollectible.RaiseOnCreated(type, 1);
         }
 
         public GemType GetGemType() => type;
 
-        internal void DestroyGem() => Destroy(gameObject);
+        internal void DestroyGem()
+        {
+            ICollectible.RaiseOnCollected(type, 1);
+            Destroy(gameObject);
+        }
     }
 }

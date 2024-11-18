@@ -25,28 +25,38 @@ public class CollectibleGoal
         }
     }
 
-    public bool GoalComplete { get; private set; }
+    public bool IsComplete { get; private set; }
 
     public static event Action OnComplete;
+
+    private bool goalInitialized = false;
 
 
     public void Init()
     {
+        if (goalInitialized) return;
+
         if (collectAllFromScene) _quantityGoal = 0;
-        GoalComplete = false;
+        IsComplete = false;
+
+        Debug.Log($"Goal Init for {collectibleConfig.name}: {QuantityGoal}; Complete: {IsComplete}");
+
+        goalInitialized = true;
     }
 
 
-    public void SetGoalQuantity(CollectibleConfig itemType, int value)
-    {
-        if (itemType == collectibleConfig)
-        {
-            QuantityGoal = value;
-        }
-    }
+    //public void SetGoalQuantity(CollectibleConfig itemType, int value)
+    //{
+    //    if (itemType == collectibleConfig)
+    //    {
+    //        QuantityGoal = value;
+    //    }
+    //}
 
     public void AddGoalQuantity(CollectibleConfig itemType, int value)
     {
+        if (!goalInitialized) Init();
+
         if (itemType == collectibleConfig)
         {
             QuantityGoal += value;
@@ -55,6 +65,8 @@ public class CollectibleGoal
 
     public void RemoveGoalQuantity(CollectibleConfig itemType, int value)
     {
+        if (!goalInitialized) Init();
+
         if (itemType == collectibleConfig)
         {
             QuantityGoal -= value;
@@ -65,7 +77,7 @@ public class CollectibleGoal
     {
         if (QuantityGoal <= 0)
         {
-            GoalComplete = true;
+            IsComplete = true;
             OnComplete?.Invoke();
         }
     }
