@@ -93,8 +93,8 @@ namespace Match3
 
         private void EnableOutline(Vector2Int gridPosition, bool enabled)
         {
-            var gemOutline = grid.GetValue(gridPosition.x, gridPosition.y).GetValue().gameObject.GetComponent<Outline>();
-            gemOutline.enabled = enabled;
+            var gemOutline = grid.GetValue(gridPosition.x, gridPosition.y)?.GetValue()?.gameObject?.GetComponent<Outline>();
+            if (gemOutline != null) gemOutline.enabled = enabled;
 
         }
 
