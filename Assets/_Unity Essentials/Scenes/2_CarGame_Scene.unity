@@ -2061,83 +2061,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1711785233603583798}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &874151072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874151068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4375caad0ae4a4fb44c491f619ec6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  populator: {fileID: 874151077}
---- !u!114 &874151073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874151068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f768fb51b2b314ec19f4cc22d7bd5b5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counterTextObject: {fileID: 1469133008}
-  counterText: "\U0001F9E9 Collectibles remaining:"
-  celebrationText: "All collected! Woohoo! \U0001F389"
-  celebrationTextColor: {r: 1, g: 0.88235295, b: 0.03137255, a: 1}
---- !u!114 &874151074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874151068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5348eb1d43c4defae77c30bdb367e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameCollectGoals:
-  - collectibleConfig: {fileID: 11400000, guid: 05b23794f66464020b9ec19bb5b5b97d,
-      type: 2}
-    collectAllFromScene: 1
-    _quantityGoal: 0
-  canAutoAddGoals: 1
---- !u!114 &874151075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874151068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775078e2f855045edb72ad5ad4313e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &874151076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874151068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 874151075}
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
 --- !u!114 &874151077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3066,18 +2989,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8521082632633355115}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1469133008 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6602561221174517691, guid: f844b5ea5529f40078a8f9230df669c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1711785233603583798}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1481265766
 GameObject:
   m_ObjectHideFlags: 0
@@ -4666,12 +4577,52 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515995499545409624, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: counterText
+      value: "\U0001F9E9 Collectibles remaining:"
+      objectReference: {fileID: 0}
+    - target: {fileID: 515995499545409624, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: celebrationText
+      value: "All collected! Woohoo! \U0001F389"
+      objectReference: {fileID: 0}
+    - target: {fileID: 515995499545409624, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: celebrationTextColor.b
+      value: 0.03137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 515995499545409624, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: celebrationTextColor.g
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 515995499545409624, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: celebrationTextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610741665363174258, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: '_monoInstallers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1711785233603583799}
+    - target: {fileID: 4856068548121260791, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: gameCollectGoals.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4938440607879009949, guid: f844b5ea5529f40078a8f9230df669c9,
         type: 3}
       propertyPath: carModelPrefab
       value: 
       objectReference: {fileID: 5452523334786583960, guid: 22b4bb7798c9c47f48a480799d624b2b,
         type: 3}
+    - target: {fileID: 5174054685985942506, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: populator
+      value: 
+      objectReference: {fileID: 874151077}
     - target: {fileID: 5478689797589102860, guid: f844b5ea5529f40078a8f9230df669c9,
         type: 3}
       propertyPath: m_Name
@@ -4748,28 +4699,20 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5478689797589102860, guid: f844b5ea5529f40078a8f9230df669c9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 874151072}
-    - targetCorrespondingSourceObject: {fileID: 5478689797589102860, guid: f844b5ea5529f40078a8f9230df669c9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 874151074}
-    - targetCorrespondingSourceObject: {fileID: 5478689797589102860, guid: f844b5ea5529f40078a8f9230df669c9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 874151073}
-    - targetCorrespondingSourceObject: {fileID: 5478689797589102860, guid: f844b5ea5529f40078a8f9230df669c9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 874151076}
-    - targetCorrespondingSourceObject: {fileID: 5478689797589102860, guid: f844b5ea5529f40078a8f9230df669c9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 874151075}
-    - targetCorrespondingSourceObject: {fileID: 5478689797589102860, guid: f844b5ea5529f40078a8f9230df669c9,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 874151077}
   m_SourcePrefab: {fileID: 100100000, guid: f844b5ea5529f40078a8f9230df669c9, type: 3}
+--- !u!114 &1711785233603583799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6703919724765199466, guid: f844b5ea5529f40078a8f9230df669c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1711785233603583798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874151068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775078e2f855045edb72ad5ad4313e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1749805209180287158
 GameObject:
   m_ObjectHideFlags: 0

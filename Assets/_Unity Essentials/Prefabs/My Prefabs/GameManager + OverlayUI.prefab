@@ -1108,6 +1108,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8060107829181675903}
+  - component: {fileID: 5174054685985942506}
+  - component: {fileID: 4856068548121260791}
+  - component: {fileID: 515995499545409624}
+  - component: {fileID: 1610741665363174258}
+  - component: {fileID: 6703919724765199466}
   m_Layer: 0
   m_Name: GameManager + OverlayUI
   m_TagString: Untagged
@@ -1132,6 +1137,83 @@ Transform:
   - {fileID: 1448526809729972379}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5174054685985942506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478689797589102860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4375caad0ae4a4fb44c491f619ec6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  populator: {fileID: 0}
+--- !u!114 &4856068548121260791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478689797589102860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5348eb1d43c4defae77c30bdb367e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameCollectGoals:
+  - collectibleConfig: {fileID: 11400000, guid: fdca56be4a5cb48419e5361497d133bc,
+      type: 2}
+    collectAllFromScene: 1
+    _quantityGoal: 0
+  canAutoAddGoals: 1
+--- !u!114 &515995499545409624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478689797589102860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f768fb51b2b314ec19f4cc22d7bd5b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterTextObject: {fileID: 6602561221174517691}
+  counterText: "\U0001F9C0 Cheese Snacks remaining:"
+  celebrationText: "\U0001F47D: \"All your cheese are belong to us!\""
+  celebrationTextColor: {r: 0.007843138, g: 1, b: 0.38431373, a: 1}
+--- !u!114 &1610741665363174258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478689797589102860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 0}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &6703919724765199466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478689797589102860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775078e2f855045edb72ad5ad4313e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6543787102585594941
 GameObject:
   m_ObjectHideFlags: 0
