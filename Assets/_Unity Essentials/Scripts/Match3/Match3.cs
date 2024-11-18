@@ -42,14 +42,10 @@ namespace Match3
 
         void Start()
         {
-            audioManager.canPlaySounds = false;
-
             GridAutoCenter();
             InitializeGrid();
 
             inputReader.Fire += OnSelectGem;
-
-            audioManager.canPlaySounds = true;
         }
 
         private void OnDestroy()
@@ -312,14 +308,14 @@ namespace Match3
             {
                 for (int y = 0; y < height; y++)
                 {
-                    CreateGem(x, y);
+                    CreateGem(x, y, silently: true);
                 }
             }
         }
 
-        private void CreateGem(int x, int y)
+        private void CreateGem(int x, int y, bool silently = false)
         {
-            audioManager.PlayCreate();
+            if (!silently) audioManager.PlayCreate();
 
             Gem gem = Instantiate(gemPrefab, grid.GetWorldPositionCenter(x, y), Quaternion.identity, transform);
             gem.SetType(gemTypes[Random.Range(0, gemTypes.Length)]);
