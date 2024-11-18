@@ -5,10 +5,13 @@ using Zenject;
 public class GameStatePresenter : MonoBehaviour {
     [Inject] readonly GameStateModel model;
     [Inject] readonly GameStateView view;
+    [SerializeField] RandomPopulator populator;
 
     private void Start()
     {
         model.SetGameWon(false);
+
+        if (populator != null) populator.Populate();
     }
 
     private void OnEnable()
@@ -23,24 +26,24 @@ public class GameStatePresenter : MonoBehaviour {
 
     private void SubscribeAll()
     {
-        Collectible.OnCreated += model.AddCollectibleCallback;
-        Collectible.OnCollected += model.RemoveCollectibleCallback;
+        ICollectible.OnCreated += model.AddCollectibleCallback;
+        ICollectible.OnCollected += model.RemoveCollectibleCallback;
         CollectibleGoal.OnComplete += model.UpdateTheGoals;
         model.OnGoalsUpdated += view.UpdateCounter;
-        model.OnGoalsUpdated += CheckGameWinOnGoals;
+        model.OnGoalsUpdated += CheckAllGoalsComplete;
     }
 
     private void UnsubscribeAll()
     {
-        Collectible.OnCreated -= model.AddCollectibleCallback;
-        Collectible.OnCollected -= model.RemoveCollectibleCallback;
+        ICollectible.OnCreated -= model.AddCollectibleCallback;
+        ICollectible.OnCollected -= model.RemoveCollectibleCallback;
         CollectibleGoal.OnComplete -= model.UpdateTheGoals;
         model.OnGoalsUpdated -= view.UpdateCounter;
-        model.OnGoalsUpdated -= CheckGameWinOnGoals;
+        model.OnGoalsUpdated -= CheckAllGoalsComplete;
 
     }
 
-    private void CheckGameWinOnGoals(List<CollectibleGoal> goals)
+    private void CheckAllGoalsComplete(List<CollectibleGoal> goals)
     {
         var victory = goals.TrueForAll(g => g.GoalComplete == true);
 

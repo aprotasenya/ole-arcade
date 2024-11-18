@@ -5,9 +5,15 @@ using NaughtyAttributes;
 [Serializable]
 public class CollectibleGoal
 {
-    public CollectibleType collectibleType;
+    public CollectibleConfig collectibleConfig;
     public bool collectAllFromScene = true;
     [SerializeField, /*HideIf("collectAllFromScene"), AllowNesting*/] int _quantityGoal;
+
+    public CollectibleGoal(CollectibleConfig collectibleConfig, bool collectAllFromScene)
+    {
+        this.collectibleConfig = collectibleConfig;
+        this.collectAllFromScene = collectAllFromScene;
+    }
 
     public int QuantityGoal
     {
@@ -31,25 +37,25 @@ public class CollectibleGoal
     }
 
 
-    public void SetGoalQuantity(CollectibleType itemType, int value)
+    public void SetGoalQuantity(CollectibleConfig itemType, int value)
     {
-        if (itemType == collectibleType)
+        if (itemType == collectibleConfig)
         {
             QuantityGoal = value;
         }
     }
 
-    public void AddGoalQuantity(CollectibleType itemType, int value)
+    public void AddGoalQuantity(CollectibleConfig itemType, int value)
     {
-        if (itemType == collectibleType)
+        if (itemType == collectibleConfig)
         {
             QuantityGoal += value;
         }
     }
 
-    public void RemoveGoalQuantity(CollectibleType itemType, int value)
+    public void RemoveGoalQuantity(CollectibleConfig itemType, int value)
     {
-        if (itemType == collectibleType)
+        if (itemType == collectibleConfig)
         {
             QuantityGoal -= value;
         }
