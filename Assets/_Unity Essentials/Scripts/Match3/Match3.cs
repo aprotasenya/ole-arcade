@@ -200,8 +200,8 @@ namespace Match3
             // TODO: FX Pool
             var vfx = Instantiate(gemPopVFX, grid.GetWorldPositionCenter(gemLocation.x, gemLocation.y), Quaternion.Euler(grid.GetForward()), transform);
 
-            // TODO: Fix this deprecated call
-            vfx.GetComponent<ParticleSystem>().startColor = gemType.color;
+            var particlesMain = vfx.GetComponent<ParticleSystem>().main;
+            particlesMain.startColor = new ParticleSystem.MinMaxGradient(gemType.color);
             vfx.transform.localScale = Vector3.one * popFXScaleFactor;
 
             audioManager.PlayPop();
