@@ -211,52 +211,44 @@ namespace Match3
             audioManager.PlayPop();
         }
 
-        private List<Vector2Int> FindMatches()
+        private HashSet<Vector2Int> FindMatches()
         {
             HashSet<Vector2Int> matches = new();
 
-            // Horizontal
-            for (int y = 0; y < height; y++)
+            // Helper function for checking a line (horizontal or vertical)
+            void CheckLine(int startX, int startY, int dirX, int dirY)
             {
-                for (int x = 0; x < width - 2; x++)
+                for (int i = 0; i < (dirX == 1 ? width : height) - 2; i++)
                 {
-                    var gemA = grid.GetValue(x, y);
-                    var gemB = grid.GetValue(x + 1, y);
-                    var gemC = grid.GetValue(x + 2, y);
+                    var gemA = grid.GetValue(startX + i * dirX, startY + i * dirY);
+                    var gemB = grid.GetValue(startX + (i + 1) * dirX, startY + (i + 1) * dirY);
+                    var gemC = grid.GetValue(startX + (i + 2) * dirX, startY + (i + 2) * dirY);
 
-                    if (gemA == null || gemB == null | gemC == null) continue;
+                    if (gemA == null || gemB == null || gemC == null) continue;
 
-                    if (gemA.GetValue().GetGemType() == gemB.GetValue().GetGemType()
-                        && gemB.GetValue().GetGemType() == gemC.GetValue().GetGemType())
+                    var gemTypeA = gemA.GetValue().GetGemType();
+                    var gemTypeB = gemB.GetValue().GetGemType();
+                    var gemTypeC = gemC.GetValue().GetGemType();
+
+                    if (gemTypeA == gemTypeB && gemTypeB == gemTypeC)
                     {
-                        matches.Add(new Vector2Int(x, y));
-                        matches.Add(new Vector2Int(x + 1, y));
-                        matches.Add(new Vector2Int(x + 2, y));
-
+                        matches.Add(new Vector2Int(startX + i * dirX, startY + i * dirY));
+                        matches.Add(new Vector2Int(startX + (i + 1) * dirX, startY + (i + 1) * dirY));
+                        matches.Add(new Vector2Int(startX + (i + 2) * dirX, startY + (i + 2) * dirY));
                     }
                 }
             }
 
-            // Vertical
+            // Horizontal matches
+            for (int y = 0; y < height; y++)
+            {
+                CheckLine(0, y, 1, 0); // Check horizontally
+            }
+
+            // Vertical matches
             for (int x = 0; x < width; x++)
             {
-                for (int y = 0; y < height - 2; y++)
-                {
-                    var gemA = grid.GetValue(x, y);
-                    var gemB = grid.GetValue(x, y + 1);
-                    var gemC = grid.GetValue(x, y + 2);
-
-                    if (gemA == null || gemB == null | gemC == null) continue;
-
-                    if (gemA.GetValue().GetGemType() == gemB.GetValue().GetGemType()
-                        && gemB.GetValue().GetGemType() == gemC.GetValue().GetGemType())
-                    {
-                        matches.Add(new Vector2Int(x, y));
-                        matches.Add(new Vector2Int(x, y + 1));
-                        matches.Add(new Vector2Int(x, y + 2));
-
-                    }
-                }
+                CheckLine(x, 0, 0, 1); // Check vertically
             }
 
             if (matches.Count == 0)
