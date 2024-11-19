@@ -29,7 +29,7 @@ namespace Match3
 
 
         private GridSystem2D<GridObject<Gem>> grid;
-        private Vector2Int selectedGem = Vector2Int.one * -1; 
+        private Vector2Int selectedGem = Vector2Int.one * -1;
         private InputReader inputReader;
         private AudioManager audioManager;
 
@@ -37,7 +37,6 @@ namespace Match3
         {
             inputReader = GetComponent<InputReader>();
             audioManager = GetComponent<AudioManager>();
-            
         }
 
         void Start()
@@ -66,7 +65,8 @@ namespace Match3
             }
 
             // click the empty slot (for a chance there's one) => ignore
-            if (grid.IsEmpty(gridPosition.x, gridPosition.y)) {
+            if (grid.IsEmpty(gridPosition.x, gridPosition.y))
+            {
                 return;
             }
 
@@ -77,7 +77,7 @@ namespace Match3
             else if (selectedGem == Vector2Int.one * -1)
             {
                 SelectGem(gridPosition);
-                EnableOutline(gridPosition, true);
+                SetOutline(gridPosition, true);
                 audioManager.PlaySelect();
             }
             else
@@ -85,18 +85,17 @@ namespace Match3
                 // TODO: Limit to only neighbour swaps?
                 // TODO: Limit valid moves only to matching ones?
 
-                EnableOutline(gridPosition, true);
+                SetOutline(gridPosition, true);
                 audioManager.PlaySelect();
                 StartCoroutine(SwapGems(selectedGem, gridPosition));
                 DeselectGem();
             }
         }
 
-        private void EnableOutline(Vector2Int gridPosition, bool enabled)
+        private void SetOutline(Vector2Int gridPosition, bool enabled)
         {
             var gemOutline = grid.GetValue(gridPosition.x, gridPosition.y)?.GetValue()?.gameObject?.GetComponent<Outline>();
             if (gemOutline != null) gemOutline.enabled = enabled;
-
         }
 
         private void SelectGem(Vector2Int gridPosition)
@@ -106,14 +105,13 @@ namespace Match3
 
         private void DeselectGem()
         {
-            EnableOutline(selectedGem, false);
+            SetOutline(selectedGem, false);
             selectedGem = Vector2Int.one * -1;
-
         }
 
         IEnumerator RunMatchLoop()
         {
-            List<Vector2Int> matches = FindMatches();
+            HashSet<Vector2Int> matches = FindMatches();
 
             while (matches.Count > 0)
             {
@@ -146,12 +144,10 @@ namespace Match3
                     }
                 }
             }
-
         }
 
         private IEnumerator MakeGemsFall()
         {
-
             for (int x = 0; x < width; x++)
             {
                 int emptyY = -1; // Позиція першої пустої клітинки в колонці
@@ -179,10 +175,9 @@ namespace Match3
                     }
                 }
             }
-
         }
 
-        private IEnumerator ExplodeGems(List<Vector2Int> matches)
+        private IEnumerator ExplodeGems(HashSet<Vector2Int> matches)
         {
             foreach (var match in matches)
             {
@@ -254,13 +249,13 @@ namespace Match3
             if (matches.Count == 0)
             {
                 audioManager.PlayNoMatch();
-            } else
+            }
+            else
             {
                 audioManager.PlayMatch();
             }
 
-            return new List<Vector2Int>(matches);
-
+            return matches;
         }
 
         IEnumerator SwapGems(Vector2Int gridPositionA, Vector2Int gridPositionB)
@@ -280,11 +275,10 @@ namespace Match3
 
             yield return new WaitForSeconds(gemSwapTime);
 
-            EnableOutline(gridPositionA, false);
-            EnableOutline(gridPositionB, false);
+            SetOutline(gridPositionA, false);
+            SetOutline(gridPositionB, false);
 
             yield return StartCoroutine(RunMatchLoop());
-
         }
 
         void GridAutoCenter()
@@ -299,7 +293,7 @@ namespace Match3
         void InitializeGrid()
         {
             grid = GridSystem2D<GridObject<Gem>>.VerticalGrid(width, height, cellSize, originPosition, debug);
-            
+
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
