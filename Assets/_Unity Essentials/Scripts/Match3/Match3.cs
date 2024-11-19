@@ -151,27 +151,31 @@ namespace Match3
 
         private IEnumerator MakeGemsFall()
         {
-            // TODO: Make this more efficient (could be faster & readable)
 
             for (int x = 0; x < width; x++)
             {
+                int emptyY = -1; // Позиція першої пустої клітинки в колонці
                 for (int y = 0; y < height; y++)
                 {
                     if (grid.GetValue(x, y) == null)
                     {
-                        for (int i = y + 1; i < height; i++)
-                        {
-                            if (grid.GetValue(x, i) != null)
-                            {
-                                var gem = grid.GetValue(x, i).GetValue();
-                                grid.SetValue(x, y, grid.GetValue(x, i));
-                                grid.SetValue(x, i, null);
-                                gem.transform.DOLocalMove(grid.GetWorldPositionCenter(x, y), gemDropTime).SetEase(gemDropEase);
-                                audioManager.PlayDrop();
-                                yield return new WaitForSeconds(gemDropTime * gemDropWaitFactor);
-                                break;
-                            }
-                        }
+                        if (emptyY == -1)
+                            emptyY = y; // Зберігаємо першу пусту клітинку
+                    }
+                    else if (emptyY != -1)
+                    {
+                        // Переміщуємо перший доступний камінь у першу пусту позицію
+                        var gem = grid.GetValue(x, y).GetValue();
+                        grid.SetValue(x, emptyY, grid.GetValue(x, y));
+                        grid.SetValue(x, y, null);
+
+                        // Анімація переміщення
+                        gem.transform.DOLocalMove(grid.GetWorldPositionCenter(x, emptyY), gemDropTime).SetEase(gemDropEase);
+                        audioManager.PlayDrop();
+
+                        yield return new WaitForSeconds(gemDropTime * gemDropWaitFactor);
+
+                        emptyY++; // Зсуваємо пусту позицію вгору
                     }
                 }
             }
