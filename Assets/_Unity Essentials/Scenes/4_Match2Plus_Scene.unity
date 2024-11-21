@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 96446717}
   - component: {fileID: 96446719}
   - component: {fileID: 96446718}
+  - component: {fileID: 96446720}
   m_Layer: 5
   m_Name: Help screen
   m_TagString: Untagged
@@ -156,7 +157,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -15, y: 15}
-  m_SizeDelta: {x: 520, y: 340}
+  m_SizeDelta: {x: 520, y: 233.5195}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &96446718
 MonoBehaviour:
@@ -196,6 +197,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96446716}
   m_CullTransparentMesh: 1
+--- !u!114 &96446720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96446716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 20
+    m_Right: 20
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 4
+  m_Spacing: 10
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &391433137
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,231 +394,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419660757}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &710977530
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 710977532}
-  - component: {fileID: 710977531}
-  - component: {fileID: 710977534}
-  - component: {fileID: 710977533}
-  - component: {fileID: 710977536}
-  - component: {fileID: 710977535}
-  m_Layer: 0
-  m_Name: Match3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &710977531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710977530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38778d8b377a4f0390f4a84d1f89846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 8
-  height: 6
-  cellSize: 1
-  originPosition: {x: -4, y: -4, z: 0}
-  gridAutoCenter: 1
-  debug: 0
-  gemPrefab: {fileID: 2197819471004636799, guid: 1c957154e53584d42b6c2b9783c02c65,
-    type: 3}
-  gemTypes:
-  - {fileID: 11400000, guid: 7426f5c26174640dc97265e6e3bdb01f, type: 2}
-  - {fileID: 11400000, guid: 4dbd22340495e4268b9f930b929e8ebe, type: 2}
-  - {fileID: 11400000, guid: 5db7d21ee60e147ac875ce518686ea45, type: 2}
-  - {fileID: 11400000, guid: 4891250cd4abe495b928b27a121164da, type: 2}
-  - {fileID: 11400000, guid: 0d4e33146683743168a0ac8dc39d1a4a, type: 2}
-  - {fileID: 11400000, guid: b8a6ec989f6644f159c525944c82db0c, type: 2}
-  gemSwapTime: 0.4
-  gemSwapEase: 28
-  gemDropTime: 0.1
-  gemDropEase: 11
-  gemDropWaitFactor: 0.5
-  gemPopVFX: {fileID: 9163842254569548763, guid: 6d15eb92a997141259e4d43b70fa3ea9,
-    type: 3}
-  popFXScaleFactor: 1.5
---- !u!4 &710977532
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710977530}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &710977533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710977530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5858af328f0ef4063880a95075a2f412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &710977534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710977530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9a80eafdde4714452844af968c87bd63,
-    type: 3}
-  m_NotificationBehavior: 3
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &710977535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710977530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40038b52579154f81946420fefdbc4d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SFXSet: {fileID: 11400000, guid: 72a904a622c634c8c8c7c6248f0ac559, type: 2}
-  canPlaySounds: 1
---- !u!82 &710977536
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710977530}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &717522089
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,18 +587,19 @@ MonoBehaviour:
   originPosition: {x: 0, y: 0, z: 0}
   gridAutoCenter: 1
   debug: 0
-  gemPrefab: {fileID: 2197819471004636799, guid: 1c957154e53584d42b6c2b9783c02c65,
+  gemPrefab: {fileID: 240534383165227762, guid: 1c957154e53584d42b6c2b9783c02c65,
     type: 3}
+  blankItemType: {fileID: 11400000, guid: a49ded330ca854ecba1563a1939e610f, type: 2}
   gemTypes:
   - {fileID: 11400000, guid: 4dbd22340495e4268b9f930b929e8ebe, type: 2}
-  - {fileID: 11400000, guid: 5db7d21ee60e147ac875ce518686ea45, type: 2}
   - {fileID: 11400000, guid: 7426f5c26174640dc97265e6e3bdb01f, type: 2}
   - {fileID: 11400000, guid: 4891250cd4abe495b928b27a121164da, type: 2}
-  gemSwapTime: 0.4
-  gemSwapEase: 28
+  - {fileID: 11400000, guid: 2ef79bf3382604c3e9ac6b82f2394a3e, type: 2}
+  pauseBetweenSteps: 0.2
+  pauseAfterCreateItem: 0.1
   gemDropTime: 0.1
   gemDropEase: 11
-  gemDropWaitFactor: 0.5
+  gemDropWaitFactor: 0.1
   gemPopVFX: {fileID: 9163842254569548763, guid: 6d15eb92a997141259e4d43b70fa3ea9,
     type: 3}
   popFXScaleFactor: 1.5
@@ -1201,10 +1004,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 96446717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 400, y: 255}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1497577429
 MonoBehaviour:
@@ -1227,8 +1030,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Controls \u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013|\n|
-    Select a gem: [LMB Click]\n| Deselect: [Click the same]\n|      or [Click out
-    of the grid]\n| Show/Hide Help: [H]\n| Quit to Menu: [Q]"
+    Select a gem: [LMB Click]\n| Show/Hide Help: [H]\n| Quit to Menu: [Q]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1339,10 +1141,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 96446717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1602981085
 MonoBehaviour:
@@ -1364,7 +1166,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Match the sets of 3+ gems
+  m_text: Match the sets of 2+ gems
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1665,7 +1467,6 @@ SceneRoots:
   - {fileID: 391433139}
   - {fileID: 1607906767}
   - {fileID: 986379095}
-  - {fileID: 710977532}
   - {fileID: 717522095}
   - {fileID: 2070580978}
   - {fileID: 1382796242}
