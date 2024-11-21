@@ -9,6 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834799676e0fe4cf5a338a7e9f820131, type: 3}
-  m_Name: M3 GreenGem
+  m_Script: {fileID: 11500000, guid: a3640e509891a4b69a92b3fbee8fb9c4, type: 3}
+  m_Name: Stone
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 7c51fa8c40119844ca26740434a3f21f, type: 3}
+  color: {r: 0.7607843, g: 0.74509805, b: 0.827451, a: 1}
+  IsClickable: 0
+  IsMovable: 0
+  IsNearDestructible: 0

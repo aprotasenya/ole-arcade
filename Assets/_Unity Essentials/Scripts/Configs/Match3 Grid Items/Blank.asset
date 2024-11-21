@@ -9,6 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834799676e0fe4cf5a338a7e9f820131, type: 3}
-  m_Name: M3 BlueGem
+  m_Script: {fileID: 11500000, guid: a3640e509891a4b69a92b3fbee8fb9c4, type: 3}
+  m_Name: Blank
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  color: {r: 0.6156863, g: 0.63529414, b: 0.6431373, a: 0.5686275}
+  IsClickable: 0
+  IsMovable: 0
+  IsNearDestructible: 0

@@ -4,10 +4,10 @@ namespace Match3
 {
     public partial class GridObject<T>
     {
-        GridSystem2D<GridObject<T>> grid;
-        int x;
-        int y;
-        T gem;
+        internal GridSystem2D<GridObject<T>> grid;
+        internal int x;
+        internal int y;
+        T item;
 
         public GridObject(GridSystem2D<GridObject<T>> grid, int x, int y)
         {
@@ -16,12 +16,13 @@ namespace Match3
             this.y = y;
         }
 
-        public void SetValue(T value)
+        public void SetItem(T item)
         {
-            this.gem = value;
+            this.item = item;
         }
 
-        public T GetValue() => gem;
+        public T GetItem() => item;
+
 
     }
 }

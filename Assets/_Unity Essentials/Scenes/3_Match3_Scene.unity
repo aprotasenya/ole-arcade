@@ -406,7 +406,7 @@ MonoBehaviour:
   originPosition: {x: -4, y: -4, z: 0}
   gridAutoCenter: 1
   debug: 0
-  gemPrefab: {fileID: 2197819471004636799, guid: 1c957154e53584d42b6c2b9783c02c65,
+  gemPrefab: {fileID: 240534383165227762, guid: 1c957154e53584d42b6c2b9783c02c65,
     type: 3}
   gemTypes:
   - {fileID: 11400000, guid: 7426f5c26174640dc97265e6e3bdb01f, type: 2}

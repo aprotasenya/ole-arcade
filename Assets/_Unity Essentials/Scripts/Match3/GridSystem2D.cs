@@ -1,41 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 namespace Match3
 {
     public class GridSystem2D<T>
-	{
-		int width;
-		int height;
-		float cellSize;
-		Vector3 origin;
-		T[,] gridArray;
+    {
+        int width;
+        int height;
+        float cellSize;
+        Vector3 origin;
+        T[,] gridArray;
 
-		CoordinateConverter coordinateConverter;
+        CoordinateConverter coordinateConverter;
 
-		public event Action<int, int, T> OnValueChangedEvent;
+        public event Action<int, int, T> OnValueChangedEvent;
 
-		public GridSystem2D(int width, int height, float cellSize, Vector3 origin, CoordinateConverter coordinateConverter, bool debug)
-		{
-			this.width = width;
-			this.height = height;
-			this.cellSize = cellSize;
-			this.origin = origin;
-			this.coordinateConverter = coordinateConverter ?? new VerticalConverter();
 
-			gridArray = new T[width, height];
+        public GridSystem2D(int width, int height, float cellSize, Vector3 origin, CoordinateConverter coordinateConverter, bool debug)
+        {
+            this.width = width;
+            this.height = height;
+            this.cellSize = cellSize;
+            this.origin = origin;
+            this.coordinateConverter = coordinateConverter ?? new VerticalConverter();
 
-			if (debug)
-			{
-				DrawDebugLines();
-			}
+            gridArray = new T[width, height];
+
+            if (debug)
+            {
+                DrawDebugLines();
+            }
         }
 
-		public static GridSystem2D<T> VerticalGrid(int width, int height, float cellSize, Vector3 origin, bool debug = false)
-		{
-			return new GridSystem2D<T>(width, height, cellSize, origin, new VerticalConverter(), debug);
-		}
+        public static GridSystem2D<T> VerticalGrid(int width, int height, float cellSize, Vector3 origin, bool debug = false)
+        {
+            return new GridSystem2D<T>(width, height, cellSize, origin, new VerticalConverter(), debug);
+        }
 
         public static GridSystem2D<T> HorizontalGrid(int width, int height, float cellSize, Vector3 origin, bool debug = false)
         {
@@ -43,54 +46,83 @@ namespace Match3
         }
 
         // Set a value to a world/grid position
-        public void SetValue (Vector3 worldPosition, T value)
-		{
-			Vector2Int gridPosition = GetXY(worldPosition);
-			SetValue(gridPosition.x, gridPosition.y, value);
-		}
-		public void SetValue (int x, int y, T value)
-		{
-			if (IsValid(x, y))
-			{
-				gridArray[x, y] = value;
-				OnValueChangedEvent?.Invoke(x, y, value);
-			}
-		}
-
-		// Get a value from a world/grid position
-        public T GetValue(Vector3 worldPosition)
+        public void SetObject(Vector3 worldPosition, T value)
         {
             Vector2Int gridPosition = GetXY(worldPosition);
-			return GetValue(gridPosition.x, gridPosition.y);
+            SetObject(gridPosition.x, gridPosition.y, value);
         }
-        public T GetValue(int x, int y)
+        public void SetObject(int x, int y, T value)
         {
-			return IsValid(x, y) ? gridArray[x, y] : default;
+            if (IsValid(x, y))
+            {
+                gridArray[x, y] = value;
+                OnValueChangedEvent?.Invoke(x, y, value);
+            }
+        }
+
+        // Get a value from a world/grid position
+        public T GetObject(Vector3 worldPosition)
+        {
+            Vector2Int gridPosition = GetXY(worldPosition);
+            return GetObject(gridPosition.x, gridPosition.y);
+        }
+        public T GetObject(int x, int y)
+        {
+            return IsValid(x, y) ? gridArray[x, y] : default;
         }
 
         // Are the input coordinates valid (i.e. on the grid)?
         public bool IsValid(int x, int y) => x >= 0 && y >= 0 && x < width && y < height;
 
-        public bool IsEmpty(int x, int y) => GetValue(x, y) == null;
+        public bool IsEmpty(int x, int y) => GetObject(x, y) == null;
 
-		public Vector2Int GetXY(Vector3 worldPosition) => coordinateConverter.WorldToGrid(worldPosition, cellSize, origin);
+        public Vector2Int GetXY(Vector3 worldPosition) => coordinateConverter.WorldToGrid(worldPosition, cellSize, origin);
 
-		public Vector3 GetWorldPositionCenter(int x, int y) => coordinateConverter.GridToWorldCenter(x, y, cellSize, origin);
+        public Vector3 GetWorldPositionCenter(int x, int y) => coordinateConverter.GridToWorldCenter(x, y, cellSize, origin);
 
-		public Vector3 GetWorldPosition(int x, int y) => coordinateConverter.GridToWorld(x, y, cellSize, origin);
+        public Vector3 GetWorldPosition(int x, int y) => coordinateConverter.GridToWorld(x, y, cellSize, origin);
 
         public Vector3 GetForward() => coordinateConverter.Forward;
 
+        public HashSet<Vector2Int> GetAdjacentCoordinates(int x, int y, bool withDiagonals = false)
+        {
+            HashSet<Vector2Int> adjacents = new();
+
+            if (withDiagonals)
+            {
+                for (int i = x - 1; i <= x + 1; i++)
+                {
+                    for (int j = y - 1; j <= y + 1; j++)
+                    {
+                        if (IsValid(i, j)) adjacents.Add(new(i, j));
+                    }
+                }
+
+                adjacents.RemoveWhere(a => (a.x == x && a.y == y));
+            }
+            else
+            {
+
+                if (x - 1 >= 0) adjacents.Add(new(x - 1, y));
+                if (x + 1 < width) adjacents.Add(new(x + 1, y));
+                if (y - 1 >= 0) adjacents.Add(new(x, y - 1));
+                if (y + 1 < height) adjacents.Add(new(x, y + 1));
+            }
+
+            return adjacents;
+
+        }
+
         private void DrawDebugLines()
         {
-			const float duration = 100f;
-			var parent = new GameObject("Debugging");
+            const float duration = 100f;
+            var parent = new GameObject("Debugging");
 
-			for (int x = 0; x < width; x++)
-			{
-				for (int y = 0; y < height; y++)
-				{
-					CreateWorldText(parent, text: $"{x}, {y}", GetWorldPositionCenter(x, y), coordinateConverter.Forward);
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    CreateWorldText(parent, text: $"{x}, {y}", GetWorldPositionCenter(x, y), coordinateConverter.Forward);
                     Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, duration);
                     Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, duration);
                 }
@@ -100,26 +132,26 @@ namespace Match3
             Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, duration);
         }
 
-		TextMeshPro CreateWorldText (GameObject parent, string text, Vector3 position, Vector3 dir,
-			int fontSize = 2, Color color = default, TextAlignmentOptions textAnchor = TextAlignmentOptions.Center, int sortingOrder = 0)
-		{
-			GameObject gameObject = new GameObject("DebugText_" + text, typeof(TextMeshPro));
-			gameObject.transform.SetParent(parent.transform);
-			gameObject.transform.position = position;
-			gameObject.transform.forward = dir;
+        TextMeshPro CreateWorldText(GameObject parent, string text, Vector3 position, Vector3 dir,
+            int fontSize = 2, Color color = default, TextAlignmentOptions textAnchor = TextAlignmentOptions.Center, int sortingOrder = 0)
+        {
+            GameObject gameObject = new GameObject("DebugText_" + text, typeof(TextMeshPro));
+            gameObject.transform.SetParent(parent.transform);
+            gameObject.transform.position = position;
+            gameObject.transform.forward = dir;
 
-			TextMeshPro textMeshPro = gameObject.GetComponent<TextMeshPro>();
-			textMeshPro.text = text;
-			textMeshPro.fontSize = fontSize;
-			textMeshPro.color = color == default ? Color.white : color;
-			textMeshPro.alignment = textAnchor;
-			textMeshPro.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
+            TextMeshPro textMeshPro = gameObject.GetComponent<TextMeshPro>();
+            textMeshPro.text = text;
+            textMeshPro.fontSize = fontSize;
+            textMeshPro.color = color == default ? Color.white : color;
+            textMeshPro.alignment = textAnchor;
+            textMeshPro.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
 
-			return textMeshPro;
-		} 
+            return textMeshPro;
+        }
 
         public abstract class CoordinateConverter
-		{
+        {
             public abstract Vector3 GridToWorld(int x, int y, float cellSize, Vector3 origin);
 
             public abstract Vector3 GridToWorldCenter(int x, int y, float cellSize, Vector3 origin);

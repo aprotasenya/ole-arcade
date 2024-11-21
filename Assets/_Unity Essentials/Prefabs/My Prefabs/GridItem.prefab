@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1160709543238328461}
   - component: {fileID: 5946721984691808942}
-  - component: {fileID: 2197819471004636799}
+  - component: {fileID: 240534383165227762}
   - component: {fileID: 5974351998908154223}
   m_Layer: 0
-  m_Name: Gem
+  m_Name: GridItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2197819471004636799
+--- !u!114 &240534383165227762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,9 +98,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4520497686859876724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2633e8e4b78aa495f9132850be26af90, type: 3}
+  m_Script: {fileID: 11500000, guid: 35476b05732444b7d9fc4198647e9e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCliclable: 1
+  IsMovable: 1
 --- !u!114 &5974351998908154223
 MonoBehaviour:
   m_ObjectHideFlags: 0

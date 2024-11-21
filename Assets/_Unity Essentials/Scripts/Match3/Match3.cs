@@ -15,8 +15,8 @@ namespace Match3
         [SerializeField] Vector3 originPosition = Vector3.zero;
         [SerializeField] bool gridAutoCenter = false;
         [SerializeField] bool debug = true;
-        [SerializeField] Gem gemPrefab;
-        [SerializeField] GemType[] gemTypes;
+        [SerializeField] GridItem gemPrefab;
+        [SerializeField] GridItemType[] gemTypes;
 
         [Header("Action Settings")]
         [SerializeField] float gemSwapTime = 0.5f;
@@ -28,7 +28,7 @@ namespace Match3
         [SerializeField, Range(0.5f, 3f)] float popFXScaleFactor = 1.5f;
 
 
-        private GridSystem2D<GridObject<Gem>> grid;
+        private GridSystem2D<GridObject<GridItem>> grid;
         private Vector2Int selectedGem = Vector2Int.one * -1;
         private InputReader inputReader;
         private AudioManager audioManager;
@@ -94,7 +94,7 @@ namespace Match3
 
         private void SetOutline(Vector2Int gridPosition, bool enabled)
         {
-            var gemOutline = grid.GetValue(gridPosition.x, gridPosition.y)?.GetValue()?.gameObject?.GetComponent<Outline>();
+            var gemOutline = grid.GetObject(gridPosition.x, gridPosition.y)?.GetItem()?.gameObject?.GetComponent<Outline>();
             if (gemOutline != null) gemOutline.enabled = enabled;
         }
 
@@ -111,7 +111,7 @@ namespace Match3
 
         IEnumerator RunMatchLoop()
         {
-            HashSet<Vector2Int> matches = FindMatches();
+            HashSet<Vector2Int> matches = FindLinearMatches();
 
             while (matches.Count > 0)
             {
@@ -123,7 +123,7 @@ namespace Match3
 
                 yield return StartCoroutine(FillEmptySpots());
 
-                matches = FindMatches();
+                matches = FindLinearMatches();
             }
 
             // TODO: Check for GameOver
@@ -153,7 +153,7 @@ namespace Match3
                 int emptyY = -1; // Позиція першої пустої клітинки в колонці
                 for (int y = 0; y < height; y++)
                 {
-                    if (grid.GetValue(x, y) == null)
+                    if (grid.GetObject(x, y) == null)
                     {
                         if (emptyY == -1)
                             emptyY = y; // Зберігаємо першу пусту клітинку
@@ -161,9 +161,9 @@ namespace Match3
                     else if (emptyY != -1)
                     {
                         // Переміщуємо перший доступний камінь у першу пусту позицію
-                        var gem = grid.GetValue(x, y).GetValue();
-                        grid.SetValue(x, emptyY, grid.GetValue(x, y));
-                        grid.SetValue(x, y, null);
+                        var gem = grid.GetObject(x, y).GetItem();
+                        grid.SetObject(x, emptyY, grid.GetObject(x, y));
+                        grid.SetObject(x, y, null);
 
                         // Анімація переміщення
                         gem.transform.DOLocalMove(grid.GetWorldPositionCenter(x, emptyY), gemDropTime).SetEase(gemDropEase);
@@ -181,20 +181,20 @@ namespace Match3
         {
             foreach (var match in matches)
             {
-                var gem = grid.GetValue(match.x, match.y).GetValue();
-                grid.SetValue(match.x, match.y, null);
+                var gem = grid.GetObject(match.x, match.y).GetItem();
+                grid.SetObject(match.x, match.y, null);
 
-                ExplodeFX(match, gem.GetGemType());
+                ExplodeFX(match, gem.GetItemType());
 
                 gem.transform.DOPunchScale(Vector3.one * 0.1f, duration: 0.1f, vibrato: 1, elasticity: 0.5f);
 
                 yield return new WaitForSeconds(0.1f);
 
-                gem.DestroyGem();
+                gem.CollectItem();
             }
         }
 
-        private void ExplodeFX(Vector2Int gemLocation, GemType gemType)
+        private void ExplodeFX(Vector2Int gemLocation, GridItemType gemType)
         {
             // TODO: FX Pool
             var vfx = Instantiate(gemPopVFX, grid.GetWorldPositionCenter(gemLocation.x, gemLocation.y), Quaternion.Euler(grid.GetForward()), transform);
@@ -206,7 +206,7 @@ namespace Match3
             audioManager.PlayPop();
         }
 
-        private HashSet<Vector2Int> FindMatches()
+        private HashSet<Vector2Int> FindLinearMatches()
         {
             HashSet<Vector2Int> matches = new();
 
@@ -215,15 +215,15 @@ namespace Match3
             {
                 for (int i = 0; i < (dirX == 1 ? width : height) - 2; i++)
                 {
-                    var gemA = grid.GetValue(startX + i * dirX, startY + i * dirY);
-                    var gemB = grid.GetValue(startX + (i + 1) * dirX, startY + (i + 1) * dirY);
-                    var gemC = grid.GetValue(startX + (i + 2) * dirX, startY + (i + 2) * dirY);
+                    var gemA = grid.GetObject(startX + i * dirX, startY + i * dirY);
+                    var gemB = grid.GetObject(startX + (i + 1) * dirX, startY + (i + 1) * dirY);
+                    var gemC = grid.GetObject(startX + (i + 2) * dirX, startY + (i + 2) * dirY);
 
                     if (gemA == null || gemB == null || gemC == null) continue;
 
-                    var gemTypeA = gemA.GetValue().GetGemType();
-                    var gemTypeB = gemB.GetValue().GetGemType();
-                    var gemTypeC = gemC.GetValue().GetGemType();
+                    var gemTypeA = gemA.GetItem().GetItemType();
+                    var gemTypeB = gemB.GetItem().GetItemType();
+                    var gemTypeC = gemC.GetItem().GetItemType();
 
                     if (gemTypeA == gemTypeB && gemTypeB == gemTypeC)
                     {
@@ -260,18 +260,18 @@ namespace Match3
 
         IEnumerator SwapGems(Vector2Int gridPositionA, Vector2Int gridPositionB)
         {
-            var gridObjectA = grid.GetValue(gridPositionA.x, gridPositionA.y);
-            var gridObjectB = grid.GetValue(gridPositionB.x, gridPositionB.y);
+            var gridObjectA = grid.GetObject(gridPositionA.x, gridPositionA.y);
+            var gridObjectB = grid.GetObject(gridPositionB.x, gridPositionB.y);
 
-            gridObjectA.GetValue().transform
+            gridObjectA.GetItem().transform
                 .DOLocalMove(grid.GetWorldPositionCenter(gridPositionB.x, gridPositionB.y), duration: gemSwapTime)
                 .SetEase(gemSwapEase);
-            gridObjectB.GetValue().transform
+            gridObjectB.GetItem().transform
                 .DOLocalMove(grid.GetWorldPositionCenter(gridPositionA.x, gridPositionA.y), duration: gemSwapTime)
                 .SetEase(gemSwapEase);
 
-            grid.SetValue(gridPositionA.x, gridPositionA.y, gridObjectB);
-            grid.SetValue(gridPositionB.x, gridPositionB.y, gridObjectA);
+            grid.SetObject(gridPositionA.x, gridPositionA.y, gridObjectB);
+            grid.SetObject(gridPositionB.x, gridPositionB.y, gridObjectA);
 
             yield return new WaitForSeconds(gemSwapTime);
 
@@ -292,7 +292,7 @@ namespace Match3
 
         void InitializeGrid()
         {
-            grid = GridSystem2D<GridObject<Gem>>.VerticalGrid(width, height, cellSize, originPosition, debug);
+            grid = GridSystem2D<GridObject<GridItem>>.VerticalGrid(width, height, cellSize, originPosition, debug);
 
             for (int x = 0; x < width; x++)
             {
@@ -309,12 +309,12 @@ namespace Match3
         {
             if (!silently) audioManager.PlayCreate();
 
-            Gem gem = Instantiate(gemPrefab, grid.GetWorldPositionCenter(x, y), Quaternion.identity, transform);
-            gem.SetType(gemTypes[Random.Range(0, gemTypes.Length)]);
+            GridItem gem = Instantiate(gemPrefab, grid.GetWorldPositionCenter(x, y), Quaternion.identity, transform);
+            gem.SetItemType(gemTypes[Random.Range(0, gemTypes.Length)]);
 
-            var gridObject = new GridObject<Gem>(grid, x, y);
-            gridObject.SetValue(gem);
-            grid.SetValue(x, y, gridObject);
+            var gridObject = new GridObject<GridItem>(grid, x, y);
+            gridObject.SetItem(gem);
+            grid.SetObject(x, y, gridObject);
         }
     }
 }
