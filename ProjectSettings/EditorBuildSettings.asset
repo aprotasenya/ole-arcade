@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Unity Essentials/Scenes/3_Match3_Scene.unity
     guid: 29cf99bf171c74f018c685141f824f64
+  - enabled: 1
+    path: Assets/_Unity Essentials/Scenes/4_Match2Plus_Scene.unity
+    guid: d5b24a8090f9d4212b51cafe6be0ecfd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
