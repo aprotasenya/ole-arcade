@@ -22,6 +22,8 @@ namespace Match3
         [Header("Items & types")]
         [SerializeField] GridItem gemPrefab;
         [SerializeField] GridItemType blankItemType;
+        [SerializeField] GridItemType sandStoneType;
+        [SerializeField] float sandStonesAtTheBottom = 0f;
         [SerializeField] GridItemType[] gemTypes;
 
         [Header("Action Settings")]
@@ -33,8 +35,6 @@ namespace Match3
         [SerializeField] GameObject gemPopVFX;
         [SerializeField, Range(0.5f, 2f)] float popFXScaleFactor = 1.5f;
 
-
-        //public static event Action OnGridComplete;
 
         private GridSystem2D<GridObject<GridItem>> grid;
         private Vector2Int selectedGem = Vector2Int.one * -1;
@@ -95,13 +95,11 @@ namespace Match3
         private void SelectGem(Vector2Int gridPosition)
         {
             selectedGem = gridPosition;
-            SetOutline(gridPosition, true);
             audioManager.PlaySelect();
         }
 
         private void DeselectGem()
         {
-            SetOutline(selectedGem, false);
             selectedGem = Vector2Int.one * -1;
         }
 
@@ -125,13 +123,17 @@ namespace Match3
                 }
 
                 yield return StartCoroutine(MakeGemsFall());
-                yield return new WaitForSeconds(pauseBetweenSteps);
+                //yield return new WaitForSeconds(pauseBetweenSteps);
+
+                DeselectGem();
 
                 yield return StartCoroutine(FillEmptySpots());
-                yield return new WaitForSeconds(pauseBetweenSteps);
+                //yield return new WaitForSeconds(pauseBetweenSteps);
             }
-
-            DeselectGem();
+            else
+            {
+                DeselectGem();
+            }
 
             yield return null;
         }
@@ -159,7 +161,7 @@ namespace Match3
             {
                 if (stone.y == 0) continue;
 
-                for (int i = stone.y-1; i >= 0; i--)
+                for (int i = stone.y - 1; i >= 0; i--)
                 {
                     if (grid.GetObject(stone.x, i)?.GetItem()?.GetItemType() != blankItemType) break;
 
@@ -187,7 +189,6 @@ namespace Match3
                 }
             }
 
-            //OnGridComplete?.Invoke();
         }
 
         private IEnumerator MakeGemsFall()
@@ -223,7 +224,6 @@ namespace Match3
 
                             // Анімація переміщення
                             gem.transform.DOLocalMove(grid.GetWorldPositionCenter(x, emptyY), gemDropTime).SetEase(gemDropEase);
-                            audioManager.PlayDrop();
                             yield return new WaitForSeconds(gemDropTime * gemDropWaitFactor);
 
                             emptyY++; // Зсуваємо пусту позицію вгору
@@ -231,6 +231,7 @@ namespace Match3
 
                     }
                 }
+                if (emptyY != -1) audioManager.PlayDrop();
 
             }
         }
@@ -243,9 +244,11 @@ namespace Match3
                 grid.SetObject(match.x, match.y, null);
 
                 ExplodeFX(match, gem.GetItemType());
-                
+
                 gem.CollectItem();
             }
+
+            audioManager.PlayPop();
 
             yield return null;
         }
@@ -259,7 +262,6 @@ namespace Match3
             particlesMain.startColor = new ParticleSystem.MinMaxGradient(gemType.color);
             vfx.transform.localScale = Vector3.one * popFXScaleFactor;
 
-            audioManager.PlayPop();
         }
 
         private HashSet<Vector2Int> FindGroupMatches()
@@ -279,8 +281,6 @@ namespace Match3
 
                 foreach (var match in batchToCheck)
                 {
-                    SetOutline(match, true);
-
                     // add the processed match to oldmatches
                     oldMatches.Add(match);
                     newlyFoundMatches.Remove(match);
@@ -318,8 +318,8 @@ namespace Match3
         {
             if (gridAutoCenter)
             {
-                originPosition.x = -width * 0.5f;
-                originPosition.y = -height * 0.5f;
+                originPosition.x = -width * cellSize * 0.5f;
+                originPosition.y = -height * cellSize * 0.5f;
             }
         }
 
@@ -327,15 +327,22 @@ namespace Match3
         {
             grid = GridSystem2D<GridObject<GridItem>>.VerticalGrid(width, height, cellSize, originPosition, debug);
 
-            for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++)
             {
-                for (int y = 0; y < height; y++)
+                for (int x = 0; x < width; x++)
                 {
-                    CreateItem(x, y, silently: true);
+                    if (sandStonesAtTheBottom > 0)
+                    {
+                        CreateItem(x, y, sandStoneType, silently: true);
+                        sandStonesAtTheBottom--;
+                    }
+                    else
+                    {
+                        CreateItem(x, y, silently: true);
+                    }
                 }
             }
 
-            //OnGridComplete?.Invoke();
         }
 
         private void CreateItem(int x, int y, bool silently = false)
@@ -344,7 +351,7 @@ namespace Match3
 
         }
 
-        // TODO: ItemPool
+        // TODO: Item Pool
         private void CreateItem(int x, int y, GridItemType type, bool silently = false)
         {
             GridItem item = Instantiate(gemPrefab, grid.GetWorldPositionCenter(x, y), Quaternion.identity, transform);
@@ -353,8 +360,6 @@ namespace Match3
             item.Init(gridObject, type);
             gridObject.SetItem(item);
             grid.SetObject(x, y, gridObject);
-
-            //if (item.IsAwaitingCompleteGrid) OnGridComplete += item.OnGridComplete;
 
             if (!silently) audioManager.PlayCreate();
         }

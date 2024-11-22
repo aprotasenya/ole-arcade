@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3640e509891a4b69a92b3fbee8fb9c4, type: 3}
   m_Name: SandStone
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: dab7bb03307bf1f4aae63ff87a0a6dd1, type: 3}
-  color: {r: 0.9647059, g: 0.7529412, b: 0.49019608, a: 1}
+  sprite: {fileID: 21300000, guid: a87daf7c2c8a4434c8d575f0954a5802, type: 3}
+  color: {r: 0.7411765, g: 0.4117647, b: 0.32156864, a: 1}
   IsClickable: 0
   IsMovable: 0
   IsNearDestructible: 1
