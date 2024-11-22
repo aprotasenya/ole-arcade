@@ -4578,6 +4578,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 197302598920161487, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_text
+      value: "<b>Controls \u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013|</b>\n|
+        <color=#FFE108>[WASD] / [Arrows]</color>: Move\n| <color=#FFE108>[Shift]</color>:
+        Boost\n| <color=#FFE108>[Spacebar]</color>: Jump\n| <color=#FFE108>[R]</color>:
+        Reset Car\n| \n| <color=#FFE108>[H]</color>: Show/hide help (this)\n| <color=#FFE108>[Q]</color>:
+        Quit to Menu"
+      objectReference: {fileID: 0}
     - target: {fileID: 515995499545409624, guid: f844b5ea5529f40078a8f9230df669c9,
         type: 3}
       propertyPath: counterText
@@ -4608,6 +4617,66 @@ PrefabInstance:
       propertyPath: '_monoInstallers.Array.data[0]'
       value: 
       objectReference: {fileID: 1711785233603583799}
+    - target: {fileID: 2636540362181955552, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 530
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636540362181955552, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923263064295346140, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4856068548121260791, guid: f844b5ea5529f40078a8f9230df669c9,
         type: 3}
       propertyPath: gameCollectGoals.Array.size
@@ -4624,6 +4693,56 @@ PrefabInstance:
       propertyPath: populator
       value: 
       objectReference: {fileID: 874151077}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319534280460990997, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5478689797589102860, guid: f844b5ea5529f40078a8f9230df669c9,
         type: 3}
       propertyPath: m_Name
@@ -4688,6 +4807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090549909741847607, guid: f844b5ea5529f40078a8f9230df669c9,
+        type: 3}
+      propertyPath: m_text
+      value: 'Goal: collect the shiny stuff!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
